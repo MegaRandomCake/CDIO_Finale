@@ -30,11 +30,14 @@ public class Controller {
 
 	private void runGame() {
 		int turnCounter = 0;
-		while (this.players.activePlayerNr() > 1 ) {
+		while (this.players.activePlayerNr() > 1) {
 			runTurn();
 			turnCounter++;
 			System.out.println(this.players);
-			players.passTurn();
+			if (turnCounter%6==0) {
+				System.out.println(this.gameLogic);
+			}
+			this.players.passTurn();
 		}
 		System.out.println(turnCounter);
 	}
@@ -46,6 +49,13 @@ public class Controller {
 		this.players.addToField(activePlayer, this.cup.getEyes());
 		int newField = this.players.getField(activePlayer);
 		this.players.addBalance(activePlayer, -this.gameLogic.getPrice(newField));
+		buyField(newField, activePlayer);
+	}
+
+	private void buyField(int field, int activePlayer) {
+		if (this.gameLogic.checkFieldOwned(field) == -1) {
+			this.gameLogic.buyField(field, activePlayer);
+		}
 	}
 
 	private void loadRules() {
