@@ -17,7 +17,7 @@ public class Cup {
 	 */
 
 	public void rollCup() {
-		this.eyes = Dice();
+		this.eyes = dice();
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class Cup {
 	 * @return A number from 1 to 6.
 	 */
 
-	private int Dice() {
+	private int dice() {
 		return (int) ((Math.random() * 6) + 1);
 	}
 }

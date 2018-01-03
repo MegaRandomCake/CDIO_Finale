@@ -18,9 +18,12 @@ public class Logic {
 	}
 	public String toString() {
 		String out="";
-		for(int i = 0; i<fields.length;i++) {
+		for(int i = 0; i<this.fields.length;i++) {
 			out += (this.fields[i] + "\n"); 
 		}
 		return out;
+	}
+	public int getPrice(int newField) {
+return this.fields[newField];		
 	}
 }

@@ -133,7 +133,7 @@ public class Player {
 	 *            The faceup-value on the die.
 	 */
 
-	public void addToField(int eyes, int fields) {
-		this.field = (this.field + eyes) % fields;
+	public void addToField(int eyes) {
+		this.field = (this.field + eyes) % 6;
 	}
 }
