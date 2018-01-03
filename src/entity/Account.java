@@ -7,7 +7,7 @@ package entity;
 
 public class Account {
 
-	int Balance, defaultBalance = 20;
+	int Balance, defaultBalance = 30000;
 
 	/**
 	 * Constructs an account with a balance based on the number of players.
@@ -21,7 +21,7 @@ public class Account {
 	 */
 
 	public Account(int i) {
-		this.Balance = (this.defaultBalance - (i - 2) * 2);
+		this.Balance = (this.defaultBalance);
 		// balanceCheck();
 	}
 
@@ -58,6 +58,6 @@ public class Account {
 	 */
 
 	public String toString() {
-		return Integer.toString(this.Balance) + "M$";
+		return "kr. " + Integer.toString(this.Balance);
 	}
 }
