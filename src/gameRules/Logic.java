@@ -1,18 +1,26 @@
 package gameRules;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.stream.Stream;
 
 public class Logic {
-	int[] fields;
+	int[] fields = new int[6];
 	String file = "src/gameRules/fieldsText.txt";
 
 	public Logic() throws IOException {
-		try (Stream<String> stream = Files.lines(Paths.get(this.file))) {
-	        stream.forEach(System.out::println);
-	}
+		BufferedReader reader = new BufferedReader(new FileReader(this.file));
+		for(int i=0; i<this.fields.length;i++) {
+			this.fields[i] = Integer.parseInt(reader.readLine());
+		}
+		reader.close();
 
+	}
+	public String toString() {
+		String out="";
+		for(int i = 0; i<fields.length;i++) {
+			out += (this.fields[i] + "\n"); 
+		}
+		return out;
 	}
 }

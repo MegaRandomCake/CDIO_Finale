@@ -29,6 +29,7 @@ public class Controller {
 			System.out.println("error loading file");
 			e.printStackTrace();
 		}
+		System.out.println(this.gameLogic);
 	}
 
 	private void playerInit() {
