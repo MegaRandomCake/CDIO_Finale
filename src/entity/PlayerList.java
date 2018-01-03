@@ -6,7 +6,6 @@ package entity;
  * whenever the game is over, printing the player's balance as a String and
  * using methods from the entity.Account class.
  * 
- * This class should only be imported from the controller.Controller class.
  */
 
 public class PlayerList {
@@ -14,14 +13,12 @@ public class PlayerList {
 	private int activePlayer = 0;
 
 	/**
-	 * Constructs a playerlist with i players from the entity.Player class.
+	 * Constructs a Player array with i players from the entity.Player class.
 	 * 
 	 * @param i
 	 *            The total number of player.
 	 * @param j
 	 *            The current player that is being constructed.
-	 * @param players
-	 *            A single player.
 	 * @param players[]
 	 *            An array of player ranging from 0 to i-1.
 	 */
@@ -29,7 +26,7 @@ public class PlayerList {
 	public PlayerList(int i) {
 		this.players = new Player[i];
 		for (int j = 0; j < i; j++) {
-			this.players[j] = new Player(i);
+			this.players[j] = new Player();
 		}
 	}
 
@@ -112,7 +109,8 @@ public class PlayerList {
 	}
 
 	/**
-	 * Sets the activePlayer to the next player in the players[]
+	 * Sets the activePlayer to the next player in the players[].
+	 * If the next player have under 0 in their balance, the dice is passed on to the next player.
 	 * 
 	 * @param activePlayer
 	 *            The player who have have yet to enter a command to roll the die,
@@ -249,8 +247,8 @@ public class PlayerList {
 	 *
 	 * @param eyes
 	 *            The faceup-value on the die.
-	 * @param field
-	 *            The fieldnumber. The field "Start is number 0".
+	 * @param player
+	 *            The player that needs to move.
 	 */
 
 	public void addToField(int player, int eyes) {
@@ -269,6 +267,13 @@ public class PlayerList {
 			out[i] = this.players[i].getField();
 		return out;
 	}
+	
+	/**
+	 * Return the number of players with a balance greater than or equal 0.
+	 * This is used for checking when the game needs to stop playing.
+	 * 
+	 * @return Number of player with a positive balance.
+	 */
 
 	public int activePlayerNr() {
 		int out = 0;

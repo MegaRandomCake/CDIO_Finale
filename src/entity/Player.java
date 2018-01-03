@@ -6,7 +6,6 @@ package entity;
  * over, printing the player's balance as a String and using methods from the
  * entity.Account class.
  * 
- * This class should only be imported from the entity.PlayerList class.
  */
 public class Player {
 	private Account account;
@@ -31,14 +30,13 @@ public class Player {
 	/**
 	 * Constructs a player with an account and a name.
 	 * 
-	 * @param account
-	 *            The starting balance for the player.
-	 * @param name
-	 *            The player's name.
+	 * @param account The starting balance for the player.
+	 * @param name The player's name.
+	 * @param field The fieldnumber in the field array. "Start" is the first field at 0 and the last field is at 39.
 	 */
 
-	public Player(int i) {
-		this.account = new Account(i);
+	public Player() {
+		this.account = new Account();
 		this.name = "";
 		this.field = 0;
 	}
@@ -106,7 +104,7 @@ public class Player {
 	 * Sets the fieldnumber to another number.
 	 * 
 	 * @param field
-	 *            The fieldnumber. The field "Start is number 0".
+	 *            The fieldnumber in the field array. "Start" is the first field at 0 and the last field is at 39.
 	 */
 
 	public void setField(int field) {
@@ -117,7 +115,7 @@ public class Player {
 	 * Returns the current field
 	 * 
 	 * @param field
-	 *            The fieldnumber. The field "Start" is number 0.
+	 *            The fieldnumber in the field array. "Start" is the first field at 0 and the last field is at 39.
 	 */
 	public int getField() {
 		return this.field;
@@ -125,10 +123,10 @@ public class Player {
 
 	/**
 	 * Sets the fieldnumber for when the player have rolled the die and needs to go
-	 * to another space
+	 * to another space.
 	 * 
 	 * @param field
-	 *            The fieldnumber. The field "Start is number 0".
+	 *            The fieldnumber in the field array. "Start" is the first field at 0 and the last field is at 39.
 	 * @param eyes
 	 *            The faceup-value on the die.
 	 */

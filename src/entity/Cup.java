@@ -1,9 +1,8 @@
 package entity;
 
 /**
- * Provides a six-sided die with metods for rolling the die, and returning the
- * faceup value of the die. This class should only be imported from the
- * controller.Controller class
+ * Provides a six-sided die with methods for rolling the die, and returning the
+ * faceup value of the die.
  */
 public class Cup {
 	private int eyes;
@@ -11,7 +10,7 @@ public class Cup {
 	/**
 	 * Sets the value of the die to a random number from [1,2,3,4,5,6]
 	 * 
-	 * @see Cup#Dice()
+	 * @see Cup#dice()
 	 * @param eyes
 	 *            The current faceup-value of the die
 	 */
@@ -33,8 +32,8 @@ public class Cup {
 	}
 
 	/**
-	 * Returns a pseudorandom number from [1,2,3,4,5,6] with Math.random The method
-	 * is only used in the Cup.rollCup() method
+	 * Returns a pseudorandom number from [1,2,3,4,5,6] with Math.random
+	 * The method is only used in the Cup.rollCup() method
 	 * 
 	 * @return A number from 1 to 6.
 	 */

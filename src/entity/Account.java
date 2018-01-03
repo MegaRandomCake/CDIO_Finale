@@ -17,10 +17,10 @@ public class Account {
 	 * @param Balance
 	 *            The starting balance for all players.
 	 * @param defaultBalance
-	 *            A number set to 20 that can be changed if necessary
+	 *            A number set to 30000 that can be changed if necessary.
 	 */
 
-	public Account(int i) {
+	public Account() {
 		this.Balance = (this.defaultBalance);
 		// balanceCheck();
 	}
@@ -50,11 +50,11 @@ public class Account {
 	}
 
 	/**
-	 * Return the balance as a String, with the valuta "M$" at the end
+	 * Return the balance as a String, with the valuta "kr." at the beginning.
 	 * 
 	 * @param Balance
 	 *            The player's current balance
-	 * @return The balance + "M$"
+	 * @return "kr." + The balance
 	 */
 
 	public String toString() {
