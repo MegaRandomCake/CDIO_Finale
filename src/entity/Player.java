@@ -134,6 +134,6 @@ public class Player {
 	 */
 
 	public void addToField(int eyes) {
-		this.field = (this.field + eyes) % 6;
+		this.field = (this.field + eyes) % 40;
 	}
 }

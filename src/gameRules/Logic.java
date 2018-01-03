@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Logic {
-	int[] fields = new int[6];
+	int[] fields = new int[40];
 	String file = "src/gameRules/fieldsText.txt";
 
 	public Logic() throws IOException {
