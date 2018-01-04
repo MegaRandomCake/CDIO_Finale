@@ -16,8 +16,9 @@ public class MatadorGUI {
 
 	}
 
-	public String next() {
-		String[] out = { "a", "b", "c", "d", "e", "f" };
-		return out[this.j++];
+	public String next(String msg) {
+		String out = this.gui.getUserString(msg);
+		//String[] out = { "a", "b", "c", "d", "e", "f" };
+		return out;
 	}
 }

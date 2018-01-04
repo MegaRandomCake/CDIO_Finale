@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Scanner;
-
 import boundry.MatadorGUI;
 import entity.Cup;
 import entity.PlayerList;
@@ -145,8 +143,8 @@ public class Controller {
 		this.players = new PlayerList(numofplayers);
 		/* Makes all the players input their playername. */
 		for (int i = 0; i < numofplayers; i++) {
-			System.out.println("Please enter the " + (i + 1) + " player name");
-			String playerName = this.boundry.next();
+			//System.out.println("Please enter the " + (i + 1) + " player name");
+			String playerName = this.boundry.next("Please enter the " + (i + 1) + " player name");
 			this.players.setName(playerName, i);
 		}
 	}

@@ -1,8 +1,4 @@
-import boundry.MatadorGUI;
 import controller.Controller;
-import entity.Cup;
-import entity.PlayerList;
-import gameRules.Logic;
 
 /**
  * Provides the main method so the game can run.
