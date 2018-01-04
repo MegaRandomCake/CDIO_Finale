@@ -8,7 +8,8 @@ import entity.PlayerList;
 import gameRules.Logic;
 
 /**
- * Provides the methods for running the game by getting information from other classes.
+ * Provides the methods for running the game by getting information from other
+ * classes.
  */
 public class Controller {
 	PlayerList players;
@@ -53,7 +54,8 @@ public class Controller {
 	}
 
 	/**
-	 * Run the game until only a single player have more than negative in their balance.
+	 * Run the game until only a single player have more than negative in their
+	 * balance.
 	 */
 
 	private void runGame() {
@@ -83,16 +85,20 @@ public class Controller {
 		this.players.addToField(activePlayer, this.cup.getEyes());
 		/* Loads the new field and its value. */
 		int newField = this.players.getField(activePlayer);
-		this.players.addBalance(activePlayer, - this.gameLogic.getPrice(newField));
+		this.players.addBalance(activePlayer, -this.gameLogic.getPrice(newField));
 		/* Buys the field if possible */
 		buyField(newField, activePlayer);
 	}
 
 	/**
-	 * Sets the field a player just landed on to their field by buying it from the bank.
+	 * Sets the field a player just landed on to their field by buying it from the
+	 * bank.
 	 * 
-	 * @param field A field on the gameboard. "Start" is number 0 and the largest number is 39.
-	 * @param activePlayer The current player who just landed on the field.
+	 * @param field
+	 *            A field on the gameboard. "Start" is number 0 and the largest
+	 *            number is 39.
+	 * @param activePlayer
+	 *            The current player who just landed on the field.
 	 */
 	private void buyField(int field, int activePlayer) {
 		if (this.gameLogic.checkFieldOwned(field) == -1) {
@@ -112,27 +118,17 @@ public class Controller {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Sets the number of players for the game and their playername.
 	 * 
-	 * @param numofplayers The number of player in the game. The user will change this.
-	 * @param c A character that helps with checking the input.
+	 * @param numofplayers
+	 *            The number of player in the game. The user will change this.
 	 */
 
 	private void playerInit() {
 		int numofplayers = 0;
-		char c = 0;
-		System.out.println("Please enter the number of the players between 2 and 6");
-		/* Loop that checks that whatever is inputed is valid. */
-		while (true) {
-			c = boundry.next().charAt(0);
-			if (c >= '2' && c <= '6')
-				break;
-			else
-				System.out.println("Input is not valid, please enter a number from 2 to 6.");
-		}
-		numofplayers = Character.getNumericValue(c);
+		numofplayers = boundry.nextInt();
 		this.players = new PlayerList(numofplayers);
 		/* Makes all the players input their playername. */
 		for (int i = 0; i < numofplayers; i++) {

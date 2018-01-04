@@ -30,7 +30,6 @@ public class Logic {
 			this.fieldOwned[i] = 0;
 		}
 		reader.close();
-
 	}
 	
 	/**

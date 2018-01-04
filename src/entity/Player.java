@@ -13,21 +13,6 @@ public class Player {
 	private int field;
 
 	/**
-	 * Returns a boolean based on the state of the game. As long as a player have
-	 * not reached under 0 in their balance, this boolean will be false, otherwise
-	 * it will be true.
-	 * 
-	 * @return <code>true</code> if a player have under 0 in their balance;
-	 *         <code>false</code> otherwise.
-	 */
-
-	public boolean gameOver() {
-		if (this.account.getBalance() < 0)
-			return true;
-		return false;
-	}
-
-	/**
 	 * Constructs a player with an account and a name.
 	 * 
 	 * @param account The starting balance for the player.
