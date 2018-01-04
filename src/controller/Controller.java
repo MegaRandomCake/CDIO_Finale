@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.util.Scanner;
 
+import boundry.MatadorGUI;
 import entity.Cup;
 import entity.PlayerList;
 import gameRules.Logic;
@@ -13,7 +14,7 @@ import gameRules.Logic;
  */
 public class Controller {
 	PlayerList players;
-	Scanner boundry;
+	MatadorGUI boundry;
 	Logic gameLogic;
 	Cup cup;
 
@@ -34,12 +35,23 @@ public class Controller {
 	 *            dice.
 	 */
 
-	public Controller(PlayerList players, Scanner boundry, Logic gameLogic, Cup cup) {
+	public Controller(PlayerList players, MatadorGUI boundry, Logic gameLogic, Cup cup) {
 		System.out.println("Controller constructor launced");
 		this.players = players;
-		this.boundry = boundry;
+		this.boundry = new MatadorGUI();
 		this.gameLogic = gameLogic;
 		this.cup = cup;
+	}
+
+	public Controller() {
+		this.boundry = new MatadorGUI();
+		try {
+			this.gameLogic = new Logic();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.cup = new Cup();
 	}
 
 	/**
@@ -128,7 +140,8 @@ public class Controller {
 
 	private void playerInit() {
 		int numofplayers = 0;
-		numofplayers = boundry.nextInt();
+		System.out.println("indtast antal spillere 2-6");
+		numofplayers = this.boundry.dropdownInt("indtast antal spillere 2-6", "2", "3", "4", "5", "6");
 		this.players = new PlayerList(numofplayers);
 		/* Makes all the players input their playername. */
 		for (int i = 0; i < numofplayers; i++) {
