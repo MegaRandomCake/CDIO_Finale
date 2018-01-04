@@ -139,28 +139,6 @@ public class PlayerList {
 	}
 
 	/**
-	 * Returns a boolean based on the state of the game. As long as any player have
-	 * not reached under 0 in their balance, the returned boolean will be false,
-	 * otherwise it will be true.
-	 * 
-	 * @see Player#gameOver
-	 * @return <code>true</code> if any player have under 0 in their balance;
-	 *         <code>false</code> otherwise.
-	 * 
-	 */
-
-	public boolean gameEnd() {
-		boolean loosers = false;
-		for (int i = 0; i < this.players.length; i++) {
-			if (this.players[i].gameOver() == true) {
-				loosers = true;
-			}
-		}
-
-		return loosers;
-	}
-
-	/**
 	 * Returns a String with the playername and their balance from the players[]
 	 * with the indexnumber i.
 	 * 
