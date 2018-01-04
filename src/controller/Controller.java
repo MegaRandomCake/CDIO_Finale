@@ -60,7 +60,6 @@ public class Controller {
 		playerInit();
 		loadRules();
 		runGame();
-
 	}
 
 	/**
@@ -96,13 +95,15 @@ public class Controller {
 		/* Loads the new field and its value. */
 		int newField = this.players.getField(activePlayer);
 		this.players.addBalance(activePlayer, -this.gameLogic.getPrice(newField));
-		/* Buys the field if possible */
+		/* Buys the field if possible | !move method to gameRules package! */
 		buyField(newField, activePlayer);
 	}
 
 	/**
 	 * Sets the field a player just landed on to their field by buying it from the
 	 * bank.
+	 * 
+	 * !This method is to be moved into the gameRules package!
 	 * 
 	 * @param field
 	 *            A field on the gameboard. "Start" is number 0 and the largest
@@ -143,9 +144,11 @@ public class Controller {
 		this.players = new PlayerList(numofplayers);
 		/* Makes all the players input their playername. */
 		for (int i = 0; i < numofplayers; i++) {
-			//System.out.println("Please enter the " + (i + 1) + " player name");
+			// System.out.println("Please enter the " + (i + 1) + " player name");
 			String playerName = this.boundry.next("Please enter the " + (i + 1) + " player name");
 			this.players.setName(playerName, i);
 		}
+		this.boundry.addPlayer(this.players.getNames(), this.players.getBalances());
 	}
+
 }
