@@ -222,7 +222,7 @@ public class PlayerList {
 	 *
 	 * @player The indexnumber for the player in the players[].
 	 * @param field
-	 *            The fieldnumber. The field "Start is number 0".
+	 *            The fieldnumber in the field array. "Start" is the first field at 0 and the last field is at 39.
 	 */
 
 	public void setField(int player, int field) {

@@ -5,6 +5,10 @@ import entity.Cup;
 import entity.PlayerList;
 import gameRules.Logic;
 
+/**
+ * Provides the main method so the game can run.
+ *
+ */
 public class Main {
 	static Scanner boundry = new Scanner(System.in);
 	static PlayerList players;
