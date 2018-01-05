@@ -23,9 +23,10 @@ class DiceToField {
 	public void testDiceToField() {
 		player.setField(1);
 		cup.rollCup();
-		int actual = cup.getEyes()+1;
+		player.addToField(cup.getEyes());
+		int actual = cup.getEyes();
 		int expected = player.getField();
-		assertEquals(actual, expected);
+		assertEquals(actual+1, expected);
 	}
 
 }
