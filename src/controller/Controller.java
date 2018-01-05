@@ -83,6 +83,7 @@ public class Controller {
 
 	/**
 	 * Makes the game go a single turn for a single player.
+	 * !Rename to "turn" before after iteration 2!
 	 */
 
 	private void runTurn() {
@@ -95,6 +96,8 @@ public class Controller {
 		/* Loads the new field and its value. */
 		int newField = this.players.getField(activePlayer);
 		this.players.addBalance(activePlayer, -this.gameLogic.getPrice(newField));
+		this.boundry.movePlayer(activePlayer, oldField, newField);
+		this.boundry.setBalance(this.players.getBalance(activePlayer), activePlayer);
 		/* Buys the field if possible | !move method to gameRules package! */
 		buyField(newField, activePlayer);
 	}
