@@ -1,10 +1,10 @@
 package entity;
 
 public class ChanceCards {
-	private int value;
+	int value;
 	private PlayerList spiller;
-	private CardType cardType;
-	private String text;
+	protected CardType cardType;
+	protected String text;
 	
 	public ChanceCards(String text, CardType cardType, int value) {
 		this.text = text;
@@ -12,7 +12,7 @@ public class ChanceCards {
 		this.value = value;
 	}
 	
-	public void CheckCard() {
+	public void CheckCard(int value) {
 		switch (cardType) {
 		case GOTOJAIL:
 			spiller.setField(spiller.getActivePlayer(), 10);

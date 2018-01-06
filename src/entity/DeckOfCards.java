@@ -3,15 +3,21 @@ package entity;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
 public class DeckOfCards {
+	
+	ChanceCards[] cards;
+	
+	public DeckOfCards(ChanceCards[] cards) {
+		this.cards = new ChanceCards[45];
+	}
+	
 
 	public void CreateDeck() throws IOException {
 
 		String file = "src/entity/Cards.txt";
 		BufferedReader reader = new BufferedReader(new FileReader(file));
-
-		ChanceCards[] cards = new ChanceCards[45];
 		int[] movefield = new int[] { 0, 0, 24, 11, 19, 32, 15, 39 };
 		int[] moneychangebank = new int[] { 500, 500, 200, 3000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, -200,
 				-200, -300, -100, -1000, -200, -3000, -3000, -200, -1000 };
@@ -37,7 +43,31 @@ public class DeckOfCards {
 		cards[42] = new ChanceCards(reader.readLine(), CardType.PAYOIL, 500);
 		cards[43] = new ChanceCards(reader.readLine(), CardType.PAYOIL, 800);
 		cards[44] = new ChanceCards(reader.readLine(), CardType.MATADORLEGAT, 40000);
+		ShuffleDeck();
 		reader.close();
+	}
+	
+	public String DrawCard() {
+		int deckcounter = 0;
+		CardType cardType = cards[deckcounter].cardType;
+		cards[deckcounter].CheckCard(cards[deckcounter].value);
+		
+		deckcounter++;
+		return cards[deckcounter].text;
+	}
+	
+	public void ShuffleDeck() {
+		Random random = new Random();
+		for(int i = cards.length -1; i > 0; i--) {
+			int j = random.nextInt(i);
+			
+			ChanceCards temp = cards[i];
+			cards[i] = cards[j];
+			cards[j] = temp;
+		}
+		for(int i = 0; i < cards.length; i++) {
+			System.out.println(cards[i].text);
+		}
 	}
 
 }
