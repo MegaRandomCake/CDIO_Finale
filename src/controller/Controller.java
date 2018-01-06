@@ -59,7 +59,7 @@ public class Controller {
 	 * @throws IOException 
 	 */
 
-	public void launchGame() throws IOException {
+	public void launchGame(){
 		playerInit();
 		loadRules();
 		runGame();
