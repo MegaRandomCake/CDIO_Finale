@@ -50,7 +50,6 @@ public class Controller {
 	 */
 
 	public void launchGame() throws IOException {
-		deck.CreateDeck();
 		playerInit();
 		loadRules();
 		runGame();
