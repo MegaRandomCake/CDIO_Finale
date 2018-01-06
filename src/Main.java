@@ -1,5 +1,5 @@
+import java.io.IOException;
 import java.util.Scanner;
-
 import controller.Controller;
 import entity.Cup;
 import entity.PlayerList;
@@ -15,7 +15,7 @@ public class Main {
 	static Logic gameLogic;
 	static Cup cup = new Cup();
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		new Controller(players, boundry, gameLogic, cup).launchGame();
 	}
 

@@ -2,7 +2,7 @@ package entity;
 
 public class ChanceCards {
 	private int value;
-	PlayerList spiller;
+	public PlayerList spiller;
 	private CardType cardType;
 	private String text;
 	

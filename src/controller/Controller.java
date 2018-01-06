@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import entity.Cup;
+import entity.DeckOfCards;
 import entity.PlayerList;
 import gameRules.Logic;
 
@@ -16,6 +17,7 @@ public class Controller {
 	Scanner boundry;
 	Logic gameLogic;
 	Cup cup;
+	DeckOfCards deck = new DeckOfCards(45);
 
 	/**
 	 * Constructs a controller with information from the entity and gameRules
@@ -44,9 +46,11 @@ public class Controller {
 
 	/**
 	 * Launches the game by calling different methods from this class.
+	 * @throws IOException 
 	 */
 
-	public void launchGame() {
+	public void launchGame() throws IOException {
+		deck.CreateDeck();
 		playerInit();
 		loadRules();
 		runGame();
@@ -85,6 +89,10 @@ public class Controller {
 		this.players.addToField(activePlayer, this.cup.getEyes());
 		/* Loads the new field and its value. */
 		int newField = this.players.getField(activePlayer);
+		switch(newField) {
+		case 2: case 7: case 17: case 22: case 33: case 36:
+			System.out.println(deck.DrawCard());
+		}
 		this.players.addBalance(activePlayer, -this.gameLogic.getPrice(newField));
 		/* Buys the field if possible */
 		buyField(newField, activePlayer);
