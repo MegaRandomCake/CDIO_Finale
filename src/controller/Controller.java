@@ -90,6 +90,8 @@ public class Controller {
 		/* Loads the active player. */
 		int activePlayer = this.players.getActivePlayer();
 		int oldField = this.players.getField(activePlayer);
+
+		this.boundry.waitForEnter(String.format("player %s's turn", activePlayer),"roll die", "roll die but with this button");
 		/* Rolls the dice and moves the player forward the number of the dice. */
 		this.cup.rollCup();
 		this.players.addToField(activePlayer, this.cup.getEyes());
