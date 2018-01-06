@@ -264,4 +264,16 @@ public class PlayerList {
 		}
 		return out;
 	}
+	
+	/**
+	 * Sets all players balance to a new value that is their old balance - the valuta.
+	 * @param valuta The value taken from all player balances.
+	 */
+	
+	public void takeMoneyAllPlayers(int valuta) {
+		for (int i = 0; i < this.players.length; i++) {
+			if(players[i].getBalance() >= 0)
+				addBalance(-i, valuta);
+		}
+	}
 }

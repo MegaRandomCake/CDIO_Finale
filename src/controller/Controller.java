@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import boundry.MatadorGUI;
 import entity.Cup;
+import entity.DeckOfCards;
 import entity.PlayerList;
 import gameRules.Logic;
 
@@ -15,6 +16,7 @@ public class Controller {
 	MatadorGUI boundry;
 	Logic gameLogic;
 	Cup cup;
+	DeckOfCards deck = new DeckOfCards(45);
 
 	/**
 	 * Constructs a controller with information from the entity and gameRules
@@ -54,9 +56,10 @@ public class Controller {
 
 	/**
 	 * Launches the game by calling different methods from this class.
+	 * @throws IOException 
 	 */
 
-	public void launchGame() {
+	public void launchGame() throws IOException {
 		playerInit();
 		loadRules();
 		runGame();
@@ -97,6 +100,10 @@ public class Controller {
 		this.players.addToField(activePlayer, this.cup.getEyes());
 		/* Loads the new field and its value. */
 		int newField = this.players.getField(activePlayer);
+		switch(newField) {
+		case 2: case 7: case 17: case 22: case 33: case 36:
+			System.out.println(deck.DrawCard());
+		}
 		this.players.addBalance(activePlayer, -this.gameLogic.getPrice(newField));
 		this.boundry.movePlayer(activePlayer, oldField, newField);
 		this.boundry.setBalance(this.players.getBalance(activePlayer), activePlayer);
