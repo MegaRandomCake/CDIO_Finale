@@ -1,40 +1,40 @@
-Start,Start,Start,Modtag4.000vedpassering,0,0
-Street,Rødovrevej,Rødovrevej1.200,Købeudvideellerbetaleleje,1200,Blue
-Chance,Prøvlykken!,Prøvlykken!,Træketchancekort,0,0
-Street,Hvidovrevej,Hvidovrevej1.200,Købeudvideellerbetaleleje,1200,Blue
-Tax,Indskomstskat,Betalindskomstskat4.000eller10%,Betal4.000eller10%,4000,0
-Ferry,ScandlinesHelsingør-Helsingborg,Scandlines4.000,Købeellerbetaleleje,4000,0
-Street,Roskildevej,Roskildevej2.000,Købeudvideellerbetaleleje,2000,Orange
-Chance,Prøvlykken!,Prøvlykken!,Træketchancekort,0,0
-Street,ValbyLanggade,ValbyLanggade2.000,Købeudvideellerbetaleleje,2000,Orange
-Street,Allégade,Allégade2.400,Købeudvideellerbetaleleje,2400,Orange
-Refuge,Påbesøgifængsel,Påbesøg,Bareroligduerkunpåbesøg,0,0
-Street,FrederiksbergAllé,FrederiksbergAllé2.800,Købeudvideellerbetaleleje,2800,Green
-Brewery,TuborgSquash,TuborgSquash3.000,Købeellerbetaleleje,3000,0
-Street,Bülowsvej,Bülowsvej2.800,Købeudvideellerbetaleleje,2800,Green
-Street,Gl.Kongevej,Gl.Kongevej3.200,Købeudvideellerbetaleleje,3200,Green
-Ferry,Mols-Linien,Mols-Linien4.000,Købeellerbetaleleje,4000,0
-Street,Bernstoftvej,Bernstoftvej3.600,Købeudvideellerbetaleleje,3600,Grey
-Chance,Prøvlykken!,Prøvlykken!,Træketchancekort,0,0
-Street,Hellerupvej,Hellerupvej3.600,Købeudvideellerbetaleleje,3600,Grey
-Street,Strandvejen,Strandvejen4.000,Købeudvideellerbetaleleje,4000,Grey
-Refuge,Parkering,Parkering,Gratisparkering,0,0
-Street,Trianglen,Trianglen4.400,Købeudvideellerbetaleleje,4400,Red
-Chance,Prøvlykken!,Prøvlykken!,Træketchancekort,0,0
-Street,Østerbrogade,Østerbrogade4.400,Købeudvideellerbetaleleje,4400,Red
-Street,Grønningen,Grønningen4.800,Købeudvideellerbetaleleje,4800,Red
-Ferry,ScandlinesGedser-Rostock,Scandlines4.000,Købeellerbetaleleje,4000,0
-Street,Bredgaade,Bredgade5.200,Købeudvideellerbetaleleje,5200,White
-Street,Kgs.Nytorv,Kgs.Nytorv5.200,Købeudvideellerbetaleleje,5200,White
-Brewery,CocaCola,CocaCola3.000,Købeellerbetaleleje,3000,0
-Street,Østergaade,Østergade5.600,Købeudvideellerbetaleleje,5600,White
-Jail,Fængsel,Defængsles,Rykdirektetilfængseludenatpasserestart,0,0
-Street,Amagertorv,Amagertorv6.000,Købeudvideellerbetaleleje,6000,Yellow
-Street,Vimmelskaftet,Vimmelskaftet6.000,Købeudvideellerbetaleleje,6000,Yellow
-Chance,Prøvlykken!,Prøvlykken!,Træketchancekort,0,0
-Street,Nygade,Nygade6.400,Købeudvideellerbetaleleje,6400,Yellow
-Ferry,ScandlinesRødby-Puttgarden,Scandlines4.000,Købeellerbetaleleje,4000,0
-Chance,Prøvlykken!,Prøvlykken!,Træketchancekort,0,0
-Street,Frederiksberggade,Frederiksberggade7.000,Købeudvideellerbetaleleje,7000,Purple
-Tax,Ekstraordinærstatsskat,BetalEkstraordinærstatsskat2.000,Betal2.000,2000,0
-Street,Rådhuspladsen,Rådhuspladsen8.000,Købeudvideellerbetaleleje,8000,Purple
+Start,Start,Start,Modtag 4.000 ved passering,0,0
+Street,Rødovrevej,Rødovrevej 1.200,Købe udvide eller betale leje,1200,Blue
+Chance,Prøv lykken!,Prøv lykken!,Træk et chancekort,0,0
+Street,Hvidovrevej,Hvidovrevej 1.200,Købe udvide eller betale leje,1200,Blue
+Tax,Indskomstskat,Betal indskomstskat 4.000 eller 10%,Betal 4.000 eller 10%,4000,0
+Ferry,Scandlines Helsingør-Helsingborg,Scandlines 4.000,Købe eller betale leje,4000,0
+Street,Roskildevej,Roskildevej 2.000,Købe udvide eller betale leje,2000,Orange
+Chance,Prøv lykken!,Prøv lykken!,Træk et chancekort,0,0
+Street,Valby Langgade,Valby Langgade 2.000,Købe udvide eller betale leje,2000,Orange
+Street,Allégade,Allégade 2.400,Købe udvide eller betale leje,2400,Orange
+Refuge,På besøg i fængsel,På besøg,Bare rolig du er kun på besøg,0,0
+Street,Frederiksberg Allé,Frederiksberg Allé 2.800,Købe udvide eller betale leje,2800,Green
+Brewery,Tuborg Squash,Tuborg Squash 3.000,Købe eller betale leje,3000,0
+Street,Bülowsvej,Bülowsvej 2.800,Købe udvide eller betale leje,2800,Green
+Street,Gl. Kongevej,Gl. Kongevej 3.200,Købe udvide eller betale leje,3200,Green
+Ferry,Mols-Linien,Mols-Linien 4.000,Købe eller betale leje,4000,0
+Street,Bernstoftvej,Bernstoftvej 3.600,Købe udvide eller betale leje,3600,Grey
+Chance,Prøv lykken!,Prøv lykken!,Træk et chancekort,0,0
+Street,Hellerupvej,Hellerupvej 3.600,Købe udvide eller betale leje,3600,Grey
+Street,Strandvejen,Strandvejen 4.000,Købe udvide eller betale leje,4000,Grey
+Refuge,Parkering,Parkering,Gratis parkering,0,0
+Street,Trianglen,Trianglen 4.400,Købe udvide eller betale leje,4400,Red
+Chance,Prøv lykken!,Prøv lykken!,Træk et chancekort,0,0
+Street,Østerbrogade,Østerbrogade 4.400,Købe udvide eller betale leje,4400,Red
+Street,Grønningen,Grønningen 4.800,Købe udvide eller betale leje,4800,Red
+Ferry,Scandlines Gedser-Rostock,Scandlines 4.000,Købe eller betale leje,4000,0
+Street,Bredgaade,Bredgade 5.200,Købe udvide eller betale leje,5200,White
+Street,Kgs. Nytorv,Kgs. Nytorv 5.200,Købe udvide eller betale leje,5200,White
+Brewery,Coca Cola,Coca Cola 3.000,Købe eller betale leje,3000,0
+Street,Østergaade,Østergade 5.600,Købe udvide eller betale leje,5600,White
+Jail,Fængsel,De fængsles,Ryk direkte til fængsel uden at passere start,0,0
+Street,Amagertorv,Amagertorv 6.000,Købe udvide eller betale leje,6000,Yellow
+Street,Vimmelskaftet,Vimmelskaftet 6.000,Købe udvide eller betale leje,6000,Yellow
+Chance,Prøv lykken!,Prøv lykken!,Træk et chancekort,0,0
+Street,Nygade,Nygade 6.400,Købe udvide eller betale leje,6400,Yellow
+Ferry,Scandlines Rødby-Puttgarden,Scandlines 4.000,Købe eller betale leje,4000,0
+Chance,Prøv lykken!,Prøv lykken!,Træk et chancekort,0,0
+Street,Frederiksberggade,Frederiksberggade 7.000,Købe udvide eller betale leje,7000,Purple
+Tax,Ekstraordinærstatsskat,Betal Ekstraordinærstatsskat 2.000,Betal 2.000,2000,0
+Street,Rådhuspladsen,Rådhuspladsen 8.000,Købe udvide eller betale leje,8000,Purple
