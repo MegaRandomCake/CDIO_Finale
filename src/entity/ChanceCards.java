@@ -1,18 +1,18 @@
 package entity;
 
 public class ChanceCards {
-	int value;
-	private PlayerList spiller;
-	protected CardType cardType;
-	protected String text;
+	private int value;
+	PlayerList spiller;
+	private CardType cardType;
+	private String text;
 	
 	public ChanceCards(String text, CardType cardType, int value) {
-		this.text = text;
-		this.cardType = cardType;
-		this.value = value;
+		this.setText(text);
+		this.setCardType(cardType);
+		this.setValue(value);
 	}
 	
-	public void CheckCard(int value) {
+	public void CheckCard(CardType cardType, int value) {
 		switch (cardType) {
 		case GOTOJAIL:
 			spiller.setField(spiller.getActivePlayer(), 10);
@@ -43,8 +43,28 @@ public class ChanceCards {
 			break;
 		}
 	}
-	
-	public String toString() {
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+	public CardType getCardType() {
+		return cardType;
+	}
+
+	public void setCardType(CardType cardType) {
+		this.cardType = cardType;
+	}
+
+	public String getText() {
 		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
 	}
 }

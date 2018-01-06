@@ -7,7 +7,8 @@ import java.util.Random;
 
 public class DeckOfCards {
 	
-	ChanceCards[] cards;
+	private ChanceCards[] cards;
+	private int cardcounter = 0;
 	
 	public DeckOfCards(ChanceCards[] cards) {
 		this.cards = new ChanceCards[45];
@@ -48,12 +49,14 @@ public class DeckOfCards {
 	}
 	
 	public String DrawCard() {
-		int deckcounter = 0;
-		CardType cardType = cards[deckcounter].cardType;
-		cards[deckcounter].CheckCard(cards[deckcounter].value);
-		
-		deckcounter++;
-		return cards[deckcounter].text;
+		cards[cardcounter].CheckCard(cards[cardcounter].getCardType(), cards[cardcounter].getValue());
+
+		cardcounter++;
+		if(cardcounter == 46) {
+			cardcounter = 0;
+			ShuffleDeck();
+		}
+		return cards[cardcounter-1].getText();
 	}
 	
 	public void ShuffleDeck() {
@@ -64,9 +67,6 @@ public class DeckOfCards {
 			ChanceCards temp = cards[i];
 			cards[i] = cards[j];
 			cards[j] = temp;
-		}
-		for(int i = 0; i < cards.length; i++) {
-			System.out.println(cards[i].text);
 		}
 	}
 
