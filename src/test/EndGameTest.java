@@ -1,40 +1,49 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.util.Scanner;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import controller.Controller;
-import entity.Cup;
-import entity.Player;
 import entity.PlayerList;
-import gameRules.Logic;
 
-class EndGameTest {
+public class EndGameTest {
 	
-	Player player;
-	Controller controller;
 	PlayerList players;
-	Scanner boundry;
-	Logic gameLogic;
-	Cup cup;
 
-	@BeforeEach
-	void setUp() throws Exception {
-		this.player = new Player();
-		this.controller = new Controller(players, boundry, gameLogic, cup);
+	@Before
+	public void setUp() throws Exception {
+		players = new PlayerList(3);
 	}
 
 	@Test
-	void removePlayerTest() {
-		this.player.addBalance(-30001);
-		int expected = this.player.getField();
-		this.controller.launchGame();
-		int actual = this.player.getField();
+	public void PlayerNoTurnTest() {
+		boolean actual = true;
+		this.players.addBalance(1, -30001);
+		for(int i = 0; i <= 10; i++, players.passTurn()) {
+			if (this.players.getActivePlayer() == 1)
+				actual = false;
+		}
+		assertEquals(actual, true);
+	}
+	
+	@Test
+	public void PlayerNoTurnTestBoundry() {
+		boolean actual = false;
+		this.players.addBalance(1, -30000);
+		for(int i = 0; i <= 10; i++, players.passTurn()) {
+			if (this.players.getActivePlayer() == 1)
+				actual = true;
+		}
+		assertEquals(actual, true);
+	}
+	
+
+	@Test
+	public void PlayerTurnTest() {
+		int t = this.players.getActivePlayer();
+		players.passTurn();
+		int actual = this.players.getActivePlayer();
+		int expected = t+1;
 		assertEquals(actual, expected);
 	}
-
 }
