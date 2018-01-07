@@ -1,12 +1,12 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
+import org.junit.Test;
 import org.junit.Before;
 import entity.Cup;
 import entity.Player;
 
-class DiceToField {
+public class DiceToField {
 	
 	Cup cup;
 	Player player;
@@ -21,8 +21,6 @@ class DiceToField {
 
 	@Test
 	public void testDiceToField() {
-		this.cup = new Cup();
-		this.player = new Player();
 		this.player.setField(1);
 		this.cup.rollCup();
 		this.player.addToField(this.cup.getEyes());
