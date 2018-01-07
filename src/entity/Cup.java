@@ -7,6 +7,7 @@ package entity;
 public class Cup {
 	private int eyes;
 	private boolean doubles;
+	private int dice, dice2;
 
 	/**
 	 * Sets the value of the die to a random number from [1,2,3,4,5,6]
@@ -17,7 +18,7 @@ public class Cup {
 	 */
 
 	public void rollCup() {
-		this.eyes = dice() + dice2();
+		this.eyes = dice + dice2;
 	}
 
 	/**
@@ -45,6 +46,22 @@ public class Cup {
 	
 	private int dice2() {
 		return (int) ((Math.random() * 6) + 1);
+	}
+	
+	public void setDice(int dice) {
+		this.dice = dice();
+	}
+	
+	public int getDice() {
+		return dice;
+	}
+	
+	public void setDice2(int dice2) {
+		this.dice2 = dice2();
+	}
+	
+	public int getDice2() {
+		return dice2;
 	}
 	
 	public void setDoubles(boolean doubles) {
