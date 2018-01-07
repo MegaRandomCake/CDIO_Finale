@@ -1,24 +1,23 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import entity.Player;
 import gameRules.Logic;
 
-class BuyPropertyTest {
+public class BuyPropertyTest {
 	
 	Logic logic;
 
-	@BeforeEach
-	void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		this.logic = new Logic();
 	}
 
 	@Test
-	void testBuyProperty() {
+	public void testBuyProperty() {
 		this.logic.buyField(1, 1);
 		int expected = 1;
 		int actual = this.logic.checkFieldOwned(1);
