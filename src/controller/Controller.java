@@ -16,7 +16,7 @@ public class Controller {
 	MatadorGUI boundry;
 	Logic gameLogic;
 	Cup cup;
-	DeckOfCards deck = new DeckOfCards(45);
+	DeckOfCards deck = new DeckOfCards();
 
 	/**
 	 * Constructs a controller with information from the entity and gameRules
@@ -48,7 +48,6 @@ public class Controller {
 		try {
 			this.gameLogic = new Logic();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.cup = new Cup();
@@ -56,7 +55,6 @@ public class Controller {
 
 	/**
 	 * Launches the game by calling different methods from this class.
-	 * @throws IOException 
 	 */
 
 	public void launchGame(){
@@ -100,10 +98,10 @@ public class Controller {
 		this.players.addToField(activePlayer, this.cup.getEyes());
 		/* Loads the new field and its value. */
 		int newField = this.players.getField(activePlayer);
-		switch(newField) {
-		case 2: case 7: case 17: case 22: case 33: case 36:
-			System.out.println(deck.DrawCard());
-		}
+//		switch(newField) {
+//		case 2: case 7: case 17: case 22: case 33: case 36:
+//			boundry.nextmessage(deck.DrawCard(players));
+//		}
 		this.players.addBalance(activePlayer, -this.gameLogic.getPrice(newField));
 		this.boundry.movePlayer(activePlayer, oldField, newField);
 		this.boundry.setBalance(this.players.getBalance(activePlayer), activePlayer);

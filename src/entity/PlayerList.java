@@ -273,7 +273,7 @@ public class PlayerList {
 	public void takeMoneyAllPlayers(int valuta) {
 		for (int i = 0; i < this.players.length; i++) {
 			if(players[i].getBalance() >= 0)
-				addBalance(-i, valuta);
+				addBalance(i, -valuta);
 		}
 	}
 }

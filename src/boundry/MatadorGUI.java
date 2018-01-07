@@ -82,6 +82,10 @@ public class MatadorGUI {
 		return 0;
 
 	}
+	
+	public void nextmessage(String txt) {
+		this.gui.displayChanceCard(txt);
+	}
 
 	public String next(String msg) {
 		String out = this.gui.getUserString(msg);
