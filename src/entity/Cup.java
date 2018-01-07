@@ -47,11 +47,11 @@ public class Cup {
 		return (int) ((Math.random() * 6) + 1);
 	}
 	
-	private void setDoubles(boolean doubles) {
+	public void setDoubles(boolean doubles) {
 		this.doubles = doubles;
 	}
 	
-	private boolean getDoubles() {
+	public boolean getDoubles() {
 		return doubles;
 	}
 	
