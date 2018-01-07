@@ -1,29 +1,28 @@
 package test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import entity.Player;
-import entity.Account;
 
-class BalanceTest {
+public class BalanceTest {
 	
 	Player player;
 
-	@BeforeEach
-	void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		this.player = new Player();
 	}
 
 	@Test
-	void defaultBalanceCheck() {
+	public void defaultBalanceCheck() {
 		int expected = this.player.getBalance();
 		int actual = 30000;
 		assertEquals(actual, expected);
 	}
 	
 	@Test
-	void addBalanceCheck() {
+	public void addBalanceCheck() {
 		int defaultBalance = this.player.getBalance();
 		this.player.addBalance(1000);
 		int expected = this.player.getBalance();
