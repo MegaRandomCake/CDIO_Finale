@@ -16,7 +16,6 @@ public class Controller {
 	Scanner boundry;
 	Logic gameLogic;
 	Cup cup;
-	Cup doubles = new Cup();
 
 	/**
 	 * Constructs a controller with information from the entity and gameRules
@@ -80,7 +79,7 @@ public class Controller {
 	private void runTurn() {
 		int i = 0;
 		do {
-		doubles.setDoubles(false);
+		cup.setDoubles(false);
 		/* Loads the active player. */
 		int activePlayer = this.players.getActivePlayer();
 		int oldField = this.players.getField(activePlayer);
@@ -92,9 +91,9 @@ public class Controller {
 		this.players.addBalance(activePlayer, -this.gameLogic.getPrice(newField));
 		/* Buys the field if possible */
 		buyField(newField, activePlayer);
-		doubles.isDoubles(dice, dice2);
+		cup.isDoubles(cup.getDice(), cup.getDice2());
 		i++;
-		}while(i <=2 && doubles.getDoubles() == true);
+		}while(i <=2 && cup.getDoubles() == true);
 	}
 
 	/**
