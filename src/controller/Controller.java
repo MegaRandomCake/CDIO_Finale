@@ -83,6 +83,7 @@ public class Controller {
 		/* Rolls the dice and moves the player forward the number of the dice. */
 		this.cup.rollCup();
 		this.players.addToField(activePlayer, this.cup.getEyes());
+		this.players.addBalance(activePlayer, ((oldField + this.players.addToField(activePlayer, this.cup.getEyes())) / 40) * 4000);
 		/* Loads the new field and its value. */
 		int newField = this.players.getField(activePlayer);
 		this.players.addBalance(activePlayer, -this.gameLogic.getPrice(newField));
