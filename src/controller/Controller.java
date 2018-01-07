@@ -77,9 +77,7 @@ public class Controller {
 	 */
 
 	private void runTurn() {
-		int i = 0;
 		do {
-		cup.setDoubles(false);
 		/* Loads the active player. */
 		int activePlayer = this.players.getActivePlayer();
 		int oldField = this.players.getField(activePlayer);
@@ -91,9 +89,7 @@ public class Controller {
 		this.players.addBalance(activePlayer, -this.gameLogic.getPrice(newField));
 		/* Buys the field if possible */
 		buyField(newField, activePlayer);
-		cup.isDoubles(cup.getDice(), cup.getDice2());
-		i++;
-		}while(i <=2 && cup.getDoubles() == true);
+		}while(cup.getDoubles() == true);
 	}
 
 	/**

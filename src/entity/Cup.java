@@ -19,7 +19,8 @@ public class Cup {
 
 	public void rollCup() {
 		dice = dice();
-		dice2 = dice2();
+		dice2 = dice();
+		isDoubles();
 		this.eyes = dice + dice2;
 	}
 
@@ -46,18 +47,6 @@ public class Cup {
 		return (int) ((Math.random() * 6) + 1);
 	}
 	
-	private int dice2() {
-		return (int) ((Math.random() * 6) + 1);
-	}
-	
-	public int getDice() {
-		return dice;
-	}
-
-	public int getDice2() {
-		return dice2;
-	}
-	
 	public void setDoubles(boolean doubles) {
 		this.doubles = doubles;
 	}
@@ -66,7 +55,7 @@ public class Cup {
 		return doubles;
 	}
 	
-	public void isDoubles(int d1, int d2) {
+	private void isDoubles() {
 		if(dice == dice2) {
 			doubles = true;
 		}
