@@ -5,15 +5,15 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import gameRules.Logic;
+import gameRules.FieldsController;
 
 public class BuyPropertyTest {
 	
-	Logic logic;
+	FieldsController logic;
 
 	@Before
 	public void setUp() throws Exception {
-		this.logic = new Logic();
+		this.logic = new FieldsController();
 	}
 
 	@Test

@@ -117,6 +117,8 @@ public class Player {
 	 */
 
 	public void addToField(int eyes) {
-		this.field = (this.field + eyes) % 40;
+		int move = this.field + eyes;
+		this.field = move % 40;
+		this.account.addBalance(4000*(move / 40));
 	}
 }

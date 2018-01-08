@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class CardLoader {
 	
-	String[][] cards = new String[45][3];
+	String[][] cards = new String[45][8];
 	
 	/**
 	 * String med beskrivelse, int med hvor mange felt er der skal rykkes, int med balanceændring for aktiv spiller, int med balanceændring for alle ikke-aktive spillere, boolean kongensfødselsdag, int[] med felter der kan flyttes til.
@@ -37,7 +37,7 @@ public class CardLoader {
 	}
 
 	public String[][] LoadDeck() {
-		return cards;
+		return this.cards;
 		
 	}
 }

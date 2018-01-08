@@ -70,9 +70,10 @@ public class MatadorGUI {
 
 		}
 	}
-	 public void waitForEnter(String text, String... Button) {
-		 this.gui.getUserButtonPressed(text, Button);
-		  }
+
+	public void waitForEnter(String text, String... Button) {
+		this.gui.getUserButtonPressed(text, Button);
+	}
 
 	public int dropdownInt(String text, String... choice) {
 		String indput = this.gui.getUserSelection(text, choice);
@@ -82,7 +83,7 @@ public class MatadorGUI {
 		return 0;
 
 	}
-	
+
 	public void nextmessage(String txt) {
 		this.gui.displayChanceCard(txt);
 	}
@@ -113,6 +114,18 @@ public class MatadorGUI {
 	public void movePlayer(int activePlayer, int oldField, int newField) {
 		this.fields[oldField].setCar(this.players[activePlayer], false);
 		this.fields[newField].setCar(this.players[activePlayer], true);
+	}
+
+	public String[] PlayerRegistration(int numOfPlayers) {
+		String[] out = new String[numOfPlayers];
+		for (int i = 0; i < out.length; i++)
+			out[i] = this.gui.getUserString("Please enter the " + (i + 1) + " player name");
+
+		return out;
+	}
+
+	public void setDice(int[] eyes) {
+		this.gui.setDice(eyes[0], eyes[1]);
 	}
 
 }

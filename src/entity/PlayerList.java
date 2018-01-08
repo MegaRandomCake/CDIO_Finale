@@ -11,6 +11,7 @@ package entity;
 public class PlayerList {
 	private Player[] players;
 	private int activePlayer = 0;
+	private int turncounter = 0;
 
 	/**
 	 * Constructs a Player array with i players from the entity.Player class.
@@ -41,8 +42,9 @@ public class PlayerList {
 	 *            The place in the players[] that will be set.
 	 */
 
-	public void setName(String name, int i) {
-		this.players[i].setName(name);
+	public void setNames(String... name) {
+		for (int i = 0; i < name.length; i++)
+			this.players[i].setName(name[i]);
 	}
 
 	/**
@@ -118,12 +120,12 @@ public class PlayerList {
 	 *            player.
 	 */
 
-	public void passTurn() {
+	public void passTurn(int i) {
 
-		this.activePlayer = ++this.activePlayer % this.players.length;
-		if (this.players[this.activePlayer].getBalance() < 0) {
-			passTurn();
-		}
+		do {
+			this.activePlayer = (++this.activePlayer-i) % this.players.length;
+		} while (this.players[this.activePlayer].getBalance() < 0);
+		this.turncounter++;
 	}
 
 	/**
@@ -264,16 +266,22 @@ public class PlayerList {
 		}
 		return out;
 	}
-	
+
 	/**
-	 * Sets all players balance to a new value that is their old balance - the valuta.
-	 * @param valuta The value taken from all player balances.
+	 * Sets all players balance to a new value that is their old balance - the
+	 * valuta.
+	 * 
+	 * @param valuta
+	 *            The value taken from all player balances.
 	 */
-	
+
 	public void takeMoneyAllPlayers(int valuta) {
 		for (int i = 0; i < this.players.length; i++) {
-			if(players[i].getBalance() >= 0)
+			if (this.players[i].getBalance() >= 0)
 				addBalance(i, -valuta);
 		}
+	}
+	public int getTurnCount() {
+		return this.turncounter;
 	}
 }

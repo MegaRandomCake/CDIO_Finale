@@ -10,7 +10,7 @@ import java.io.IOException;
  * returning the field buying price, and checking what player owns what field.
  *
  */
-public class Logic {
+public class FieldsController {
 	
 	int[] fields = new int[40];
 	int[] fieldOwned = new int[40];
@@ -23,7 +23,7 @@ public class Logic {
 	 * @throws IOException
 	 */
 
-	public Logic() throws IOException {
+	public FieldsController() throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(this.file));
 		for (int i = 0; i < this.fields.length; i++) {
 			this.fields[i] = Integer.parseInt(reader.readLine());

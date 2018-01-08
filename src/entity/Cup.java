@@ -6,6 +6,7 @@ package entity;
  */
 public class Cup {
 	private int[] eyes = new int[2];
+	boolean doubles = false;
 
 	/**
 	 * Sets the value of the die to a random number from [1,2,3,4,5,6]
@@ -18,6 +19,10 @@ public class Cup {
 	public void rollCup() {
 		for (int i = 0; i < this.eyes.length; i++)
 			this.eyes[i] = dice();
+		if (this.eyes[0] == this.eyes[1])
+			this.doubles = true;
+		else
+			this.doubles = false;
 	}
 
 	/**
@@ -28,7 +33,7 @@ public class Cup {
 	 * @return The current faceup-value of the die
 	 */
 
-	public int getEyes() {
+	public int getSum() {
 		int out = 0;
 		for (int roll : this.eyes) {
 			out += roll;
@@ -46,22 +51,14 @@ public class Cup {
 	private int dice() {
 		return (int) ((Math.random() * 6) + 1);
 	}
-	
-	public void setDoubles(boolean doubles) {
-		this.doubles = doubles;
+
+	public int getDoubles() {
+		if (this.doubles == true)
+			return 1;
+		return 0;
 	}
-	
-	public boolean getDoubles() {
-		return doubles;
+
+	public int[] getEyes() {
+		return this.eyes;
 	}
-	
-	private void isDoubles() {
-		if(dice == dice2) {
-			doubles = true;
-		}
-		else {
-			doubles = false;
-		}
-	}
-	
 }
