@@ -1,8 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Scanner;
-
+import boundry.MatadorGUI;
 import entity.Cup;
 import entity.DeckOfCards;
 import entity.PlayerList;
@@ -14,10 +13,10 @@ import gameRules.Logic;
  */
 public class Controller {
 	PlayerList players;
-	Scanner boundry;
+	MatadorGUI boundry;
 	Logic gameLogic;
 	Cup cup;
-	DeckOfCards deck = new DeckOfCards(45);
+	DeckOfCards deck = new DeckOfCards();
 
 	/**
 	 * Constructs a controller with information from the entity and gameRules
@@ -36,24 +35,32 @@ public class Controller {
 	 *            dice.
 	 */
 
-	public Controller(PlayerList players, Scanner boundry, Logic gameLogic, Cup cup) {
+	public Controller(PlayerList players, MatadorGUI boundry, Logic gameLogic, Cup cup) {
 		System.out.println("Controller constructor launced");
 		this.players = players;
-		this.boundry = boundry;
+		this.boundry = new MatadorGUI();
 		this.gameLogic = gameLogic;
 		this.cup = cup;
 	}
 
+	public Controller() {
+		this.boundry = new MatadorGUI();
+		try {
+			this.gameLogic = new Logic();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		this.cup = new Cup();
+	}
+
 	/**
 	 * Launches the game by calling different methods from this class.
-	 * @throws IOException 
 	 */
 
-	public void launchGame() throws IOException {
+	public void launchGame(){
 		playerInit();
 		loadRules();
 		runGame();
-
 	}
 
 	/**
@@ -77,29 +84,37 @@ public class Controller {
 
 	/**
 	 * Makes the game go a single turn for a single player.
+	 * !Rename to "turn" before after iteration 2!
 	 */
 
 	private void runTurn() {
 		/* Loads the active player. */
 		int activePlayer = this.players.getActivePlayer();
 		int oldField = this.players.getField(activePlayer);
+
+		this.boundry.waitForEnter(String.format("player %s's turn", activePlayer),"roll die", "roll die but with this button");
 		/* Rolls the dice and moves the player forward the number of the dice. */
 		this.cup.rollCup();
 		this.players.addToField(activePlayer, this.cup.getEyes());
+		this.players.addBalance(activePlayer, ((oldField + this.players.addToField(activePlayer, this.cup.getEyes())) / 40) * 4000);
 		/* Loads the new field and its value. */
 		int newField = this.players.getField(activePlayer);
-		switch(newField) {
-		case 2: case 7: case 17: case 22: case 33: case 36:
-			System.out.println(deck.DrawCard());
-		}
+//		switch(newField) {
+//		case 2: case 7: case 17: case 22: case 33: case 36:
+//			boundry.nextmessage(deck.DrawCard(players));
+//		}
 		this.players.addBalance(activePlayer, -this.gameLogic.getPrice(newField));
-		/* Buys the field if possible */
+		this.boundry.movePlayer(activePlayer, oldField, newField);
+		this.boundry.setBalance(this.players.getBalance(activePlayer), activePlayer);
+		/* Buys the field if possible | !move method to gameRules package! */
 		buyField(newField, activePlayer);
 	}
 
 	/**
 	 * Sets the field a player just landed on to their field by buying it from the
 	 * bank.
+	 * 
+	 * !This method is to be moved into the gameRules package!
 	 * 
 	 * @param field
 	 *            A field on the gameboard. "Start" is number 0 and the largest
@@ -135,13 +150,16 @@ public class Controller {
 
 	private void playerInit() {
 		int numofplayers = 0;
-		numofplayers = boundry.nextInt();
+		System.out.println("indtast antal spillere 2-6");
+		numofplayers = this.boundry.dropdownInt("indtast antal spillere 2-6", "2", "3", "4", "5", "6");
 		this.players = new PlayerList(numofplayers);
 		/* Makes all the players input their playername. */
 		for (int i = 0; i < numofplayers; i++) {
-			System.out.println("Please enter the " + (i + 1) + " player name");
-			String playerName = this.boundry.next();
+			// System.out.println("Please enter the " + (i + 1) + " player name");
+			String playerName = this.boundry.next("Please enter the " + (i + 1) + " player name");
 			this.players.setName(playerName, i);
 		}
+		this.boundry.addPlayer(this.players.getNames(), this.players.getBalances());
 	}
+
 }

@@ -5,7 +5,7 @@ package entity;
  * faceup value of the die.
  */
 public class Cup {
-	private int eyes;
+	private int[] eyes = new int[2];
 
 	/**
 	 * Sets the value of the die to a random number from [1,2,3,4,5,6]
@@ -16,7 +16,8 @@ public class Cup {
 	 */
 
 	public void rollCup() {
-		this.eyes = dice();
+		for (int i = 0; i < this.eyes.length; i++)
+			this.eyes[i] = dice();
 	}
 
 	/**
@@ -28,12 +29,16 @@ public class Cup {
 	 */
 
 	public int getEyes() {
-		return this.eyes;
+		int out = 0;
+		for (int roll : this.eyes) {
+			out += roll;
+		}
+		return out;
 	}
 
 	/**
-	 * Returns a pseudorandom number from [1,2,3,4,5,6] with Math.random
-	 * The method is only used in the Cup.rollCup() method
+	 * Returns a pseudorandom number from [1,2,3,4,5,6] with Math.random The method
+	 * is only used in the Cup.rollCup() method
 	 * 
 	 * @return A number from 1 to 6.
 	 */
