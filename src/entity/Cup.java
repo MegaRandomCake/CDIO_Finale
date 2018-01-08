@@ -46,4 +46,22 @@ public class Cup {
 	private int dice() {
 		return (int) ((Math.random() * 6) + 1);
 	}
+	
+	public void setDoubles(boolean doubles) {
+		this.doubles = doubles;
+	}
+	
+	public boolean getDoubles() {
+		return doubles;
+	}
+	
+	private void isDoubles() {
+		if(dice == dice2) {
+			doubles = true;
+		}
+		else {
+			doubles = false;
+		}
+	}
+	
 }

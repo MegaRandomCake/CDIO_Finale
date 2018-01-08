@@ -88,6 +88,7 @@ public class Controller {
 	 */
 
 	private void runTurn() {
+		do {
 		/* Loads the active player. */
 		int activePlayer = this.players.getActivePlayer();
 		int oldField = this.players.getField(activePlayer);
@@ -108,6 +109,7 @@ public class Controller {
 		this.boundry.setBalance(this.players.getBalance(activePlayer), activePlayer);
 		/* Buys the field if possible | !move method to gameRules package! */
 		buyField(newField, activePlayer);
+		}while(cup.getDoubles() == true);
 	}
 
 	/**
