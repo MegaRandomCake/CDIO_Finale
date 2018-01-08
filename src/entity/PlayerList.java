@@ -109,8 +109,8 @@ public class PlayerList {
 	}
 
 	/**
-	 * Sets the activePlayer to the next player in the players[].
-	 * If the next player have under 0 in their balance, the dice is passed on to the next player.
+	 * Sets the activePlayer to the next player in the players[]. If the next player
+	 * have under 0 in their balance, the dice is passed on to the next player.
 	 * 
 	 * @param activePlayer
 	 *            The player who have have yet to enter a command to roll the die,
@@ -119,7 +119,7 @@ public class PlayerList {
 	 */
 
 	public void passTurn() {
-		
+
 		this.activePlayer = ++this.activePlayer % this.players.length;
 		if (this.players[this.activePlayer].getBalance() < 0) {
 			passTurn();
@@ -158,7 +158,8 @@ public class PlayerList {
 	 * @return The player's name.
 	 */
 
-	public String[] getNames(int i) {
+	public String[] getNames() {
+		int i = this.players.length;
 		String[] out = new String[i];
 		for (int j = 0; j < i; j++) {
 			out[j] = this.players[j].getName();
@@ -200,7 +201,8 @@ public class PlayerList {
 	 *
 	 * @player The indexnumber for the player in the players[].
 	 * @param field
-	 *            The fieldnumber in the field array. "Start" is the first field at 0 and the last field is at 39.
+	 *            The fieldnumber in the field array. "Start" is the first field at
+	 *            0 and the last field is at 39.
 	 */
 
 	public void setField(int player, int field) {
@@ -245,10 +247,10 @@ public class PlayerList {
 			out[i] = this.players[i].getField();
 		return out;
 	}
-	
+
 	/**
-	 * Return the number of players with a balance greater than or equal 0.
-	 * This is used for checking when the game needs to stop playing.
+	 * Return the number of players with a balance greater than or equal 0. This is
+	 * used for checking when the game needs to stop playing.
 	 * 
 	 * @return Number of player with a positive balance.
 	 */
@@ -261,5 +263,17 @@ public class PlayerList {
 			}
 		}
 		return out;
+	}
+	
+	/**
+	 * Sets all players balance to a new value that is their old balance - the valuta.
+	 * @param valuta The value taken from all player balances.
+	 */
+	
+	public void takeMoneyAllPlayers(int valuta) {
+		for (int i = 0; i < this.players.length; i++) {
+			if(players[i].getBalance() >= 0)
+				addBalance(i, -valuta);
+		}
 	}
 }
