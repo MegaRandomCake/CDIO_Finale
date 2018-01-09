@@ -6,6 +6,7 @@ package entity;
  */
 public class Cup {
 	private int[] eyes = new int[2];
+	private boolean doubles = false;
 
 	/**
 	 * Sets the value of the die to a random number from [1,2,3,4,5,6]
@@ -43,12 +44,12 @@ public class Cup {
 	 * @return A number from 1 to 6.
 	 */
 
-	private int dice() {
+	public int dice() {
 		return (int) ((Math.random() * 6) + 1);
 	}
 	
 	public void setDoubles(boolean doubles) {
-		this.doubles = doubles;
+		this.doubles   = doubles;
 	}
 	
 	public boolean getDoubles() {
@@ -56,7 +57,7 @@ public class Cup {
 	}
 	
 	private void isDoubles() {
-		if(dice == dice2) {
+		if(eyes[0] == eyes[1]) {
 			doubles = true;
 		}
 		else {
