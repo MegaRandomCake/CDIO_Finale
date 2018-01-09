@@ -18,7 +18,7 @@ public class GameRulesController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		this.gameText = "text in the top coner";
+		this.gameText = "text in the top corner";
 		this.centerText = "text in the center";
 
 	}
@@ -37,5 +37,9 @@ public class GameRulesController {
 
 	private void checkField(int newField) {
 		this.addAPBalance = -this.fields.getPrice(newField);
+	}
+	
+	private void CheckCard() {
+		
 	}
 }

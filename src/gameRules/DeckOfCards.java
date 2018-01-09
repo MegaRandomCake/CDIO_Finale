@@ -1,4 +1,4 @@
-package entity;
+package gameRules;
 
 import java.io.IOException;
 //import java.util.Random;

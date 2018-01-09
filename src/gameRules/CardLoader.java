@@ -1,4 +1,4 @@
-package entity;
+package gameRules;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
