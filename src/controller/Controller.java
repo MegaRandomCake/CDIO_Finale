@@ -118,13 +118,19 @@ public class Controller {
 
 	private void checkLogic(int activePlayer, int newField) {
 		Object[] doThis = this.gameLogic.getArray(newField);
-		//this.boundry.waitForEnter((String) doThis[0], "ok");
-
-		// switch(newField) {
-		// case 2: case 7: case 17: case 22: case 33: case 36:
-		// boundry.nextmessage(deck.DrawCard(players));
-		// }
+		boundry.nextmessage((String) doThis[1]);
+		this.players.addToField(activePlayer, (Integer) doThis[2]);
+		/* Virker ikke, bilen flyttes men der skabes en ikke-flytbar klon på det gamle felt */
+//		if ((Integer) doThis[3] != 40)
+//			this.players.setField(activePlayer, (Integer) doThis[3]);
 		this.players.addBalance(activePlayer, (Integer) doThis[4]);
+		this.players.takeMoneyAllPlayers((Integer) doThis[5]);
+		/* Endnu ikke implementeret */
+		// this.players.PayDouble((Boolean) doThis[6]);
+		// this.players.setPrisonState(activePlayer, (Boolean) doThis[7]);
+		// if((Boolean) doThis[8] == true)
+		// this.players.addBirthdayCard(activePlayer);
+
 		/* Buys the field if possible | !move method to gameRules package! */
 		// buyField(newField, activePlayer);
 	}

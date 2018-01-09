@@ -272,8 +272,7 @@ public class PlayerList {
 	}
 
 	/**
-	 * Sets all players balance to a new value that is their old balance - the
-	 * valuta.
+	 * Sets all players balance (except for the active player) to a new value that is their old balance minus the valuta.
 	 * 
 	 * @param valuta
 	 *            The value taken from all player balances.
@@ -281,9 +280,10 @@ public class PlayerList {
 
 	public void takeMoneyAllPlayers(int valuta) {
 		for (int i = 0; i < this.players.length; i++) {
-			if (this.players[i].getBalance() >= 0)
-				addBalance(i, -valuta);
+			if (this.players[i].getBalance() >= 0 && i != activePlayer)
+				addBalance(i, valuta);
 		}
+		addBalance(activePlayer, -valuta);
 	}
 
 	public int getTurnCount() {

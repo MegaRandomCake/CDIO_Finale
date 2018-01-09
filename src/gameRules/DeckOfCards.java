@@ -2,12 +2,11 @@ package gameRules;
 
 import java.io.IOException;
 //import java.util.Random;
+import java.util.Random;
 
 public class DeckOfCards {
 	
 	String[][] deck;
-
-//	private int cardcounter = 0;
 
 	/**
 	 * @param file
@@ -23,35 +22,20 @@ public class DeckOfCards {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ShuffleDeck();
 	}
-		
+	
+	public void ShuffleDeck() {
+	    Random random = new Random();
 
-//	public String DrawCard(PlayerList spiller) {
-//
-//		CardType cardType = this.cards[cardcounter].getCardType();
-//
-//		int value = this.cards[cardcounter].getValue();
-//
-//		this.cards[cardcounter].CheckCard(spiller, cardType, value);
-//
-//		cardcounter++;
-//		if (cardcounter == 46) {
-//			cardcounter = 0;
-//			ShuffleDeck();
-//		}
-//
-//		return this.cards[cardcounter - 1].getText();
-//	}
-//
-//	public void ShuffleDeck() {
-//		Random random = new Random();
-//		for (int i = this.cards.length - 1; i > 0; i--) {
-//			int j = random.nextInt(i);
-//
-//			ChanceCards temp = this.cards[i];
-//			this.cards[i] = this.cards[j];
-//			this.cards[j] = temp;
-//		}
-//	}
-
+	    for (int i = deck.length - 1; i > 0; i--) {
+	    	int m = random.nextInt(i + 1);
+	        for (int j = 0; j < deck[i].length; j++) {
+	            
+	            String temp = deck[i][j];
+	            deck[i][j] = deck[m][j];
+	            deck[m][j] = temp;
+	        }
+	    }
+	}
 }

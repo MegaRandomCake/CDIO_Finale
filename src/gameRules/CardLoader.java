@@ -6,15 +6,17 @@ import java.io.IOException;
 
 public class CardLoader {
 	
-	String[][] cards = new String[45][8];
+	String[][] cards = new String[45][9];
 	
 	/**
-	 * String med beskrivelse, int med hvor mange felt er der skal rykkes, int med balanceændring for aktiv spiller, int med balanceændring for alle ikke-aktive spillere, boolean kongensfødselsdag, int[] med felter der kan flyttes til.
+	 * String med beskrivelse, int med hvor mange felt er der skal rykkes, int med balanceændring for aktiv spiller,
+	 * int med balanceændring for alle ikke-aktive spillere,int oliepriser(1)/ejendomsskat(2)/matadorlegat(3), 
+	 * boolean Skal man betale dobbelt, boolean Ryger man i fængsel, boolean kongensfødselsdag, int[] med felter der kan flyttes til.
 	 * @throws IOException
 	 */
 
 	public CardLoader() throws IOException {
-		String file = "src/entity/Cards.txt";
+		String file = "src/gameRules/Cards.txt";
 
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 
