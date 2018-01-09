@@ -12,6 +12,7 @@ public class PlayerList {
 	private Player[] players;
 	private int activePlayer = 0;
 	private int turncounter = 0;
+	private int extraTurns = 0;
 
 	/**
 	 * Constructs a Player array with i players from the entity.Player class.
@@ -120,15 +121,15 @@ public class PlayerList {
 	 *            player.
 	 */
 
-	public void passTurn(int i) {
-		int antiloop = 0;
-		do {
-			this.activePlayer = (++this.activePlayer - i) % this.players.length;
-			antiloop++;
-		} while (this.players[this.activePlayer].getBalance() < 0 & antiloop < 10);
-		if (antiloop > 10)
-			this.activePlayer++;
+	public void passTurn(boolean gotDoubles) {
+		if (gotDoubles == false || this.players[this.activePlayer].getBalance() < 0 || this.extraTurns >= 2) {
+			this.extraTurns = 0;
+			this.activePlayer = ++this.activePlayer % this.players.length;
+			passTurn(this.players[this.activePlayer].getBalance() >= 0);
+		} else if (gotDoubles == true)
+			this.extraTurns++;
 		this.turncounter++;
+
 	}
 
 	/**

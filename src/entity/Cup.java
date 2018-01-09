@@ -52,10 +52,8 @@ public class Cup {
 		return (int) ((Math.random() * 6) + 1);
 	}
 
-	public int getDoubles() {
-		if (this.doubles == true)
-			return 1;
-		return 0;
+	public boolean getDoubles() {
+		return this.doubles;
 	}
 
 	public int[] getEyes() {
