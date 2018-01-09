@@ -121,10 +121,13 @@ public class PlayerList {
 	 */
 
 	public void passTurn(int i) {
-
+		int antiloop = 0;
 		do {
-			this.activePlayer = (++this.activePlayer-i) % this.players.length;
-		} while (this.players[this.activePlayer].getBalance() < 0);
+			this.activePlayer = (++this.activePlayer - i) % this.players.length;
+			antiloop++;
+		} while (this.players[this.activePlayer].getBalance() < 0 & antiloop < 10);
+		if (antiloop > 10)
+			this.activePlayer++;
 		this.turncounter++;
 	}
 
@@ -281,6 +284,7 @@ public class PlayerList {
 				addBalance(i, -valuta);
 		}
 	}
+
 	public int getTurnCount() {
 		return this.turncounter;
 	}
