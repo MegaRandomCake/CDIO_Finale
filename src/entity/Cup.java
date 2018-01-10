@@ -5,7 +5,7 @@ package entity;
  * faceup value of the die.
  */
 public class Cup {
-	private int[] eyes = new int[2];
+	
 
 	/**
 	 * Sets the value of the die to a random number from [1,2,3,4,5,6]
