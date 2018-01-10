@@ -1,11 +1,8 @@
 package controller;
 
-import java.io.IOException;
-
 import boundry.MatadorGUI;
 import entity.Cup;
 import entity.PlayerList;
-import gameRules.FieldsController;
 import gameRules.GameRulesController;
 
 /**

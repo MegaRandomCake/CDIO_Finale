@@ -7,6 +7,7 @@ package entity;
 public class Cup {
 	private int[] eyes = new int[2];
 	boolean doubles = false;
+	private int doubleCounter = 0;
 
 	/**
 	 * Sets the value of the die to a random number from [1,2,3,4,5,6]
@@ -19,10 +20,13 @@ public class Cup {
 	public void rollCup() {
 		for (int i = 0; i < this.eyes.length; i++)
 			this.eyes[i] = dice();
-		if (this.eyes[0] == this.eyes[1])
+		if (this.eyes[0] == this.eyes[1] && this.doubleCounter <= 2) {
 			this.doubles = true;
-		else
+			this.doubleCounter++;
+		} else {
 			this.doubles = false;
+			this.doubleCounter = 0;
+		}
 	}
 
 	/**
