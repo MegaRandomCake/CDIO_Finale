@@ -4,6 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Provides a 2d array with information about the chancecards and their various
+ * Strings, ints and booleans.
+ */
+
 public class CardLoader {
 
 	String[][] cards = new String[45][9];
@@ -43,9 +48,10 @@ public class CardLoader {
 		}
 		reader.close();
 	}
-	
+
 	/**
 	 * Return the entire String[][] of all chancecards created in the constructor.
+	 * 
 	 * @return String[][] with all chancecards.
 	 */
 

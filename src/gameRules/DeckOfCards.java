@@ -4,6 +4,11 @@ import java.io.IOException;
 //import java.util.Random;
 import java.util.Random;
 
+/**
+ * Provides a constructor for creating a complete deck of cards for the game
+ * along with a method for shuffling the cards
+ */
+
 public class DeckOfCards {
 
 	String[][] deck;

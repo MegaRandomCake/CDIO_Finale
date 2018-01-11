@@ -8,7 +8,6 @@ import java.io.IOException;
 /**
  * Provides an array with all the fields on the gameboard that can handle buying a field,
  * returning the field buying price, and checking what player owns what field.
- *
  */
 public class FieldsController {
 	
