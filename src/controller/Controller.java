@@ -115,7 +115,7 @@ public class Controller {
 
 	private void checkLogic(int activePlayer, int newField) {
 		Object[] doThis = this.gameLogic.getArray(newField);
-		boundry.nextmessage((String) doThis[1]);
+		this.boundry.nextmessage((String) doThis[1]);
 		this.players.addToField(activePlayer, (Integer) doThis[2]);
 		/* Virker ikke, bilen flyttes men der skabes en ikke-flytbar klon på det gamle felt */
 //		if ((Integer) doThis[3] != 40)

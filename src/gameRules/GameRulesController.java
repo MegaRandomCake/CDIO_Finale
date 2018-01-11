@@ -35,40 +35,51 @@ public class GameRulesController {
 	public Object[] getArray(int newField) {
 		ResetOut();
 		checkField(newField);
-		out[0] = this.gameText;
-		out[1] = this.centerText;
-		out[2] = this.moveFields;
-		out[3] = this.moveToFields;
-		out[4] = this.addAPBalance;
-		out[5] = this.addNAPBalance;
-		out[6] = this.PayDouble;
-		out[7] = this.GoToJail;
-		out[8] = this.KingsBirthday;
-		out[9] = this.SpecialEvent;
-		return out;
+		this.out[0] = this.gameText;
+		this.out[1] = this.centerText;
+		this.out[2] = this.moveFields;
+		this.out[3] = this.moveToFields;
+		this.out[4] = this.addAPBalance;
+		this.out[5] = this.addNAPBalance;
+		this.out[6] = this.PayDouble;
+		this.out[7] = this.GoToJail;
+		this.out[8] = this.KingsBirthday;
+		this.out[9] = this.SpecialEvent;
+		return this.out;
 	}
 
 	private void checkField(int newField) {
-		DrawCard(newField);
+		switch (newField) {
+		case 2:
+		case 7:
+		case 17:
+		case 22:
+		case 33:
+		case 36:
+
+			DrawCard();
+			break;
+		default:
+			break;
+		}
+//		if (this.fields.checkFieldOwned(newField))
 		this.addAPBalance = this.addAPBalance - this.fields.getPrice(newField);
 	}
 
-	private void DrawCard(int newField) {
-		switch (newField) {
-		case 2:case 7:case 17:case 22:case 33:case 36:
-			this.centerText = this.deck.deck[CurrentTopCard][0];
-			this.moveFields = Integer.parseInt(this.deck.deck[CurrentTopCard][1]);
-			this.addAPBalance = Integer.parseInt(this.deck.deck[CurrentTopCard][2]);
-			this.addNAPBalance = Integer.parseInt(this.deck.deck[CurrentTopCard][3]);
-			this.SpecialEvent = Integer.parseInt(this.deck.deck[CurrentTopCard][4]);
-			this.PayDouble = Boolean.parseBoolean(this.deck.deck[CurrentTopCard][5]);
-			this.GoToJail = Boolean.parseBoolean(this.deck.deck[CurrentTopCard][6]);
-			this.KingsBirthday = Boolean.parseBoolean(this.deck.deck[CurrentTopCard][7]);
-			this.moveToFields = Integer.parseInt(this.deck.deck[CurrentTopCard][8]);
-			CurrentTopCard++;
-			if (CurrentTopCard == 44)
-				deck.ShuffleDeck();
-		}
+	private void DrawCard() {
+		this.centerText = this.deck.deck[this.CurrentTopCard][0];
+		this.moveFields = Integer.parseInt(this.deck.deck[this.CurrentTopCard][1]);
+		this.addAPBalance = Integer.parseInt(this.deck.deck[this.CurrentTopCard][2]);
+		this.addNAPBalance = Integer.parseInt(this.deck.deck[this.CurrentTopCard][3]);
+		this.SpecialEvent = Integer.parseInt(this.deck.deck[this.CurrentTopCard][4]);
+		this.PayDouble = Boolean.parseBoolean(this.deck.deck[this.CurrentTopCard][5]);
+		this.GoToJail = Boolean.parseBoolean(this.deck.deck[this.CurrentTopCard][6]);
+		this.KingsBirthday = Boolean.parseBoolean(this.deck.deck[this.CurrentTopCard][7]);
+		this.moveToFields = Integer.parseInt(this.deck.deck[this.CurrentTopCard][8]);
+		this.CurrentTopCard++;
+		if (this.CurrentTopCard == 44)
+			this.deck.ShuffleDeck();
+
 	}
 
 	private void ResetOut() {
