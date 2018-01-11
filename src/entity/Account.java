@@ -12,12 +12,10 @@ public class Account {
 	/**
 	 * Constructs an account with a balance based on the number of players.
 	 * 
-	 * @param i
-	 *            The number of players.
 	 * @param Balance
 	 *            The starting balance for all players.
 	 * @param defaultBalance
-	 *            A number set to 30000 that can be changed if necessary.
+	 *            The default balance set to 30000 that can be changed if necessary.
 	 */
 
 	public Account() {
@@ -26,8 +24,7 @@ public class Account {
 	}
 
 	/**
-	 * Returns the balance as a integer, this method will be expanded in the
-	 * entity.Player class.
+	 * Returns the balance as a integer.
 	 * 
 	 * @param Balance
 	 *            The player's current balance
@@ -39,7 +36,7 @@ public class Account {
 	}
 
 	/**
-	 * Sets the balance to something else by adding or subtracting
+	 * Sets the balance to something else by adding or subtracting the BalanceLocal
 	 * 
 	 * @param BalanceLocal
 	 *            The amount that needs to be changed from the player's balance.

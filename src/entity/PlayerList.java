@@ -2,9 +2,9 @@ package entity;
 
 /**
  * Provides an array of players for the controller.Controller class that can
- * handle the action of creating players with a name and an account, checking
- * whenever the game is over, printing the player's balance as a String and
- * using methods from the entity.Account class.
+ * handle the action of creating players with a name and an account, printing
+ * the player's balance as a String and using methods from the entity.Account
+ * class.
  * 
  */
 
@@ -98,10 +98,12 @@ public class PlayerList {
 	}
 
 	/**
-	 * fill later
+	 * Returns a boolean that is true if the player in players[i] have a balance
+	 * equal to or above 0, else it returns false.
 	 * 
-	 * @return an int array with every player who's balance is positive and who
-	 *         arent the active player
+	 * @param i The player that will have their balance checked.
+	 * 
+	 * @return <code>true</code> if players[i]'s balance >= 0; false otherwise.
 	 */
 
 	public Boolean playerPlaying(int i) {
@@ -112,6 +114,7 @@ public class PlayerList {
 	}
 
 	/**
+	 * !Move extraTurns to controller.Controller
 	 * Sets the activePlayer to the next player in the players[]. If the next player
 	 * have under 0 in their balance, the dice is passed on to the next player.
 	 * 
@@ -119,6 +122,10 @@ public class PlayerList {
 	 *            The player who have have yet to enter a command to roll the die,
 	 *            or have just rolled the die before passing the die to the next
 	 *            player.
+	 *            
+	 * @param gotDoubles Is <code>true</code> if the player before the activeplayer rolled 2 alike dice; false otherwise.
+	 * @param extraTurns The number of times a player have rolled 2 alike dice in a row.
+	 * @param turncounter The total number of turns taken in the game.
 	 */
 
 	public void passTurn(boolean gotDoubles) {
@@ -272,7 +279,8 @@ public class PlayerList {
 	}
 
 	/**
-	 * Sets all players balance (except for the active player) to a new value that is their old balance minus the valuta.
+	 * Sets all players balance (except for the active player) to a new value that
+	 * is their old balance minus the valuta.
 	 * 
 	 * @param valuta
 	 *            The value taken from all player balances.
