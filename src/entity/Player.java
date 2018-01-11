@@ -2,10 +2,9 @@ package entity;
 
 /**
  * Provides a player for the entity.PlayerList class that can handle the action
- * of creating players with a name and an account, checking whenever the game is
- * over, printing the player's balance as a String and using methods from the
- * entity.Account class.
- * 
+ * of creating players with a name and an account, setting and getting the
+ * current fieldnumber, printing the player's balance as a String and using
+ * methods from the entity.Account class.
  */
 public class Player {
 	private Account account;
@@ -15,9 +14,13 @@ public class Player {
 	/**
 	 * Constructs a player with an account and a name.
 	 * 
-	 * @param account The starting balance for the player.
-	 * @param name The player's name.
-	 * @param field The fieldnumber in the field array. "Start" is the first field at 0 and the last field is at 39.
+	 * @param account
+	 *            The starting balance for the player.
+	 * @param name
+	 *            The player's name.
+	 * @param field
+	 *            The fieldnumber in the field array. "Start" is the first field at
+	 *            0 and the last field is at 39.
 	 */
 
 	public Player() {
@@ -62,7 +65,7 @@ public class Player {
 	 * @see Account#addBalance()
 	 * 
 	 * @param value
-	 *            A value that will be added to the balance.
+	 *            A value that will be added/subtracted to the balance.
 	 */
 
 	public void addBalance(int value) {
@@ -89,7 +92,8 @@ public class Player {
 	 * Sets the fieldnumber to another number.
 	 * 
 	 * @param field
-	 *            The fieldnumber in the field array. "Start" is the first field at 0 and the last field is at 39.
+	 *            The fieldnumber. "Start" is the first field at 0 and the last
+	 *            field is at 39.
 	 */
 
 	public void setField(int field) {
@@ -100,7 +104,10 @@ public class Player {
 	 * Returns the current field
 	 * 
 	 * @param field
-	 *            The fieldnumber in the field array. "Start" is the first field at 0 and the last field is at 39.
+	 *            The fieldnumber. "Start" is the first field at 0 and the last
+	 *            field is at 39.
+	 * 
+	 * @return Current fieldnumber.
 	 */
 	public int getField() {
 		return this.field;
@@ -108,15 +115,19 @@ public class Player {
 
 	/**
 	 * Sets the fieldnumber for when the player have rolled the die and needs to go
-	 * to another space.
+	 * to another space. If the player moves past/lands on "Start" the player is
+	 * given kr. 4000 to their balance
 	 * 
 	 * @param field
-	 *            The fieldnumber in the field array. "Start" is the first field at 0 and the last field is at 39.
+	 *            The fieldnumber. "Start" is the first field at 0 and the last
+	 *            field is at 39.
 	 * @param eyes
-	 *            The faceup-value on the die.
+	 *            The faceup-value of the dice.
 	 */
 
 	public void addToField(int eyes) {
-		this.field = (this.field + eyes) % 40;
+		int move = this.field + eyes;
+		this.field = move % 40;
+		this.account.addBalance(4000 * (move / 40));
 	}
 }

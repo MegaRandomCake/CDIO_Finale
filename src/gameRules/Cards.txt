@@ -1,0 +1,45 @@
+Ryk tre felter tilbage.|-3|0|0|0|false|false|false|40|
+Ryk tre felter tilbage.|-3|0|0|0|false|false|false|40|
+Ryk tre felter frem.|3|0|0|0|false|false|false|40|
+Ryk frem til "START".|0|0|0|0|false|false|false|0|
+Ryk frem til "START".|0|0|0|0|false|false|false|0|
+Ryk frem til Grønningen. Hvis De passerer "START", indkassér da kr. 4.000.|0|0|0|0|false|false|false|24|
+Ryk frem til Frederiksberg Allé. Hvis De passerer "START", indkassér da kr. 4.000.|0|0|0|0|false|false|false|11|
+Ryk frem til Strandvejen. Hvis De passerer "START", indkassér da kr. 4.000.|0|0|0|0|false|false|false|19|
+Ryk frem til Vimmelskaftet. Hvis De passerer "START", indkassér da kr. 4.000.|0|0|0|0|false|false|false|32|
+Tag med Mols-linjen. Flyt brikken frem, og hvis De passerer "START", indkassér da kr. 4.000.|0|0|0|0|false|false|false|15|
+Tag ind på Rådhuspladsen.|0|0|0|0|false|false|false|39|
+Ryk brikken frem til nærmeste redderi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen, kan De købe det af banken.|0|0|0|0|true|false|false|40|
+Ryk brikken frem til nærmeste redderi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen, kan De købe det af banken.|0|0|0|0|true|false|false|40|
+I anledning af kongens fødselsdag benådes De hverved for fængsel. Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.|0|0|0|0|false|false|true|40|
+I anledning af kongens fødselsdag benådes De hverved for fængsel. Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.|0|0|0|0|false|false|true|40|
+Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer "START", indkasserer De ikke kr. 4.000.|0|0|0|0|false|true|false|10|
+Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer "START", indkasserer De ikke kr. 4.000.|0|0|0|0|false|true|false|10|
+De har vundet i Klasselotteriet. Modtag kr. 500.|0|500|0|0|false|false|false|40|
+De har vundet i Klasselotteriet. Modtag kr. 500.|0|500|0|0|false|false|false|40|
+Værdien af egen avl fra nyttehaven udgør kr. 200, som De modtager af banken.|0|200|0|0|false|false|false|40|
+Kommunen har eftergivet et kvartals skat. Hæv i banken kr. 3.000.|0|3000|0|0|false|false|false|40|
+De har solgt nogle gamle møbler på auktion. Modtag kr. 1.000 af banken.|0|1000|0|0|false|false|false|40|
+De havde en række med elleve rigtige i tipning. Modtag kr. 1.000.|0|1000|0|0|false|false|false|40|
+Grundet dyrtiden har De fået gageforhøjelse. Modtag kr. 1.000.|0|1000|0|0|false|false|false|40|
+Modtag udbytte af Deres aktier - kr. 1.000.|0|1000|0|0|false|false|false|40|
+Modtag udbytte af Deres aktier - kr. 1.000.|0|1000|0|0|false|false|false|40|
+Deres præmieobligation er udtrykket. De modtager kr. 1.000 af banken.|0|1000|0|0|false|false|false|40|
+Deres præmieobligation er udtrykket. De modtager kr. 1.000 af banken.|0|1000|0|0|false|false|false|40|
+De modtager Deres aktieudbytte, Modtag kr. 1.000 af banken.|0|1000|0|0|false|false|false|40|
+De har fået en parkeringsbøde. Betal kr. 200 i bøde.|0|-200|0|0|false|false|false|40|
+De har været en tur i udlandet og haft for mange cigaretter med hjem. Betal told kr. 200.|0|-200|0|0|false|false|false|40|
+Betal for vognvask og smøring kr. 300.|0|-300|0|0|false|false|false|40|
+De har kørt frem for "Fuldt stop". Betal kr. 1.000 i bøde.|0|-1000|0|0|false|false|false|40|
+Betal Deres bilforsikring - kr. 1.000.|0|-1000|0|0|false|false|false|40|
+De har modtaget Deres tandlægeregning. Betal kr. 2.000.|0|-2000|0|0|false|false|false|40|
+Betal kr. 3.000 for reparation af Deres vogn.|0|-3000|0|0|false|false|false|40|
+Betal kr. 3.000 for reparation af Deres vogn.|0|-3000|0|0|false|false|false|40|
+Betal kr. 200 for levering af 2 kasser øl.|0|-200|0|0|false|false|false|40|
+De har købt 4 nye dæk til Deres vogn. Betal kr. 1.000.|0|-1000|0|0|false|false|false|40|
+Det er Deres fødselsdag. Modtag af hver medspiller kr. 200.|0|200|-200|0|false|false|false|40|
+De har lagt penge ud til et sammenskudsgilde. Mærkværdigvis betaler all straks. Modtag fra hver medspiller kr. 500.|0|500|-500|0|false|false|false|40|
+De skal holde familiefest og får et tilskud fra hver medspiller på kr. 500.|0|500|-500|0|false|false|false|40|
+Ejendomsskatterne er steget. Ekstraudgifterne er: kr. 800 pr. hus, kr. 2.300 pr. hotel.|0|0|0|1|false|false|false|40|
+Oliepriserne er steget, og De skal betale: kr. 500 pr. hus, kr. 2.000 pr. hotel.|0|0|0|2|false|false|false|40|
+De modtager "Matador-legatet for værdigt trængende" på kr. 40.000. Ved værdigt trængende forstås, at Deres formue, dvs. Deres kontante penge + skøder + bygninger, ikke overstiger kr. 15.000.|0|0|0|3|false|false|false|40|

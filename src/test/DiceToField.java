@@ -23,8 +23,8 @@ public class DiceToField {
 	public void testDiceToField() {
 		this.player.setField(1);
 		this.cup.rollCup();
-		this.player.addToField(this.cup.getEyes());
-		int actual = this.cup.getEyes();
+		this.player.addToField(this.cup.getSum());
+		int actual = this.cup.getSum();
 		int expected = this.player.getField();
 		assertEquals(actual+1, expected);
 	}

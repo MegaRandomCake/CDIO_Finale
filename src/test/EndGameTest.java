@@ -12,14 +12,14 @@ public class EndGameTest {
 
 	@Before
 	public void setUp() throws Exception {
-		players = new PlayerList(3);
+		this.players = new PlayerList(3);
 	}
 
 	@Test
 	public void PlayerNoTurnTest() {
 		boolean actual = true;
 		this.players.addBalance(1, -30001);
-		for(int i = 0; i <= 10; i++, players.passTurn()) {
+		for(int i = 0; i <= 10; i++, this.players.passTurn(false)) {
 			if (this.players.getActivePlayer() == 1)
 				actual = false;
 		}
@@ -30,7 +30,7 @@ public class EndGameTest {
 	public void PlayerNoTurnTestBoundry() {
 		boolean actual = false;
 		this.players.addBalance(1, -30000);
-		for(int i = 0; i <= 10; i++, players.passTurn()) {
+		for(int i = 0; i <= 10; i++, this.players.passTurn(false)) {
 			if (this.players.getActivePlayer() == 1)
 				actual = true;
 		}
@@ -41,7 +41,7 @@ public class EndGameTest {
 	@Test
 	public void PlayerTurnTest() {
 		int t = this.players.getActivePlayer();
-		players.passTurn();
+		this.players.passTurn(false);
 		int actual = this.players.getActivePlayer();
 		int expected = t+1;
 		assertEquals(actual, expected);

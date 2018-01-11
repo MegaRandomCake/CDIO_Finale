@@ -22,6 +22,12 @@ public class MatadorGUI {
 	GUI_Car[] cars;
 	Color[] colors = { Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE, Color.BLACK, Color.WHITE };
 
+	/**
+	 * Constructs a Graphical User Interface or GUI that have a gameboard with 40
+	 * fields, the fields are created from the boundry.Loader class. The fields are
+	 * then given their attributes based on type of field.
+	 */
+
 	public MatadorGUI() {
 		Loader loader = null;
 		try {
@@ -70,9 +76,29 @@ public class MatadorGUI {
 
 		}
 	}
-	 public void waitForEnter(String text, String... Button) {
-		 this.gui.getUserButtonPressed(text, Button);
-		  }
+
+	/**
+	 * Creates a button on the GUI that can be pressed.
+	 * 
+	 * @param text
+	 *            String that is put at the top left of the gameboard.
+	 * @param Button
+	 *            Strings that is put on the button.
+	 */
+
+	public void waitForEnter(String text, String... Button) {
+		this.gui.getUserButtonPressed(text, Button);
+	}
+
+	/**
+	 * Returns an int from the choice array that is based on player input.
+	 * 
+	 * @param text
+	 *            String that is put at the top left of the gameboard.
+	 * @param choice
+	 *            Strings that are put in a dropdown menu.
+	 * @return The chosen String from choice.
+	 */
 
 	public int dropdownInt(String text, String... choice) {
 		String indput = this.gui.getUserSelection(text, choice);
@@ -82,16 +108,40 @@ public class MatadorGUI {
 		return 0;
 
 	}
-	
+
+	/**
+	 * Makes the GUI display a message in the top left corner
+	 * 
+	 * @param txt
+	 *            The text to display.
+	 */
+
 	public void nextmessage(String txt) {
 		this.gui.displayChanceCard(txt);
 	}
 
+	/**
+	 * Makes the GUI display a box made for player input.
+	 * 
+	 * @param msg
+	 *            The String the player inputs.
+	 * @return The player input.
+	 */
+
 	public String next(String msg) {
 		String out = this.gui.getUserString(msg);
-		// String[] out = { "a", "b", "c", "d", "e", "f" };
 		return out;
 	}
+
+	/**
+	 * Creates a new player with a name from the names[], a car from the GUI and a
+	 * balance.
+	 * 
+	 * @param names
+	 *            An array with all the player's name
+	 * @param balances
+	 *            An array with all the player's starting balance.
+	 */
 
 	public void addPlayer(String[] names, int[] balances) {
 		this.players = new GUI_Player[names.length];
@@ -106,13 +156,49 @@ public class MatadorGUI {
 
 	}
 
+	/**
+	 * Sets the balance of the activeplayer
+	 * @param balance The balance change.
+	 * @param activePlayer The indexnumber of the activeplayer.
+	 */
+
 	public void setBalance(int balance, int activePlayer) {
 		this.players[activePlayer].setBalance(balance);
 	}
 
+	/**
+	 * Sets the players status to <code>false</code> on the old field, and <code>true</code>
+	 * @param activePlayer The indexnumber of the activeplayer.
+	 * @param oldField The indexnumber of the old field.
+	 * @param newField The indexnumber of the new field.
+	 */
+
 	public void movePlayer(int activePlayer, int oldField, int newField) {
 		this.fields[oldField].setCar(this.players[activePlayer], false);
 		this.fields[newField].setCar(this.players[activePlayer], true);
+	}
+
+	/**
+	 * Returns a String[] containing all the names of the players, after they have been inputed by the players.
+	 * @param numOfPlayers The number of player that will be playing the game.
+	 * @return String[] with all playernames.
+	 */
+
+	public String[] PlayerRegistration(int numOfPlayers) {
+		String[] out = new String[numOfPlayers];
+		for (int i = 0; i < out.length; i++)
+			out[i] = this.gui.getUserString("Please enter the " + (i + 1) + " player name");
+
+		return out;
+	}
+
+	/**
+	 * Makes the GUI display 2 dice that shows their face-up value
+	 * @param eyes int[] containing the face-up values.
+	 */
+
+	public void setDice(int[] eyes) {
+		this.gui.setDice(eyes[0], eyes[1]);
 	}
 
 }

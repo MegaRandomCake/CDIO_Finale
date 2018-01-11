@@ -2,15 +2,17 @@ package entity;
 
 /**
  * Provides an array of players for the controller.Controller class that can
- * handle the action of creating players with a name and an account, checking
- * whenever the game is over, printing the player's balance as a String and
- * using methods from the entity.Account class.
+ * handle the action of creating players with a name and an account, printing
+ * the player's balance as a String and using methods from the entity.Account
+ * class.
  * 
  */
 
 public class PlayerList {
 	private Player[] players;
 	private int activePlayer = 0;
+	private int turncounter = 0;
+	private int extraTurns = 0;
 
 	/**
 	 * Constructs a Player array with i players from the entity.Player class.
@@ -41,8 +43,9 @@ public class PlayerList {
 	 *            The place in the players[] that will be set.
 	 */
 
-	public void setName(String name, int i) {
-		this.players[i].setName(name);
+	public void setNames(String... name) {
+		for (int i = 0; i < name.length; i++)
+			this.players[i].setName(name[i]);
 	}
 
 	/**
@@ -95,10 +98,12 @@ public class PlayerList {
 	}
 
 	/**
-	 * fill later
+	 * Returns a boolean that is true if the player in players[i] have a balance
+	 * equal to or above 0, else it returns false.
 	 * 
-	 * @return an int array with every player who's balance is positive and who
-	 *         arent the active player
+	 * @param i The player that will have their balance checked.
+	 * 
+	 * @return <code>true</code> if players[i]'s balance >= 0; false otherwise.
 	 */
 
 	public Boolean playerPlaying(int i) {
@@ -109,6 +114,7 @@ public class PlayerList {
 	}
 
 	/**
+	 * !Move extraTurns to controller.Controller
 	 * Sets the activePlayer to the next player in the players[]. If the next player
 	 * have under 0 in their balance, the dice is passed on to the next player.
 	 * 
@@ -116,14 +122,21 @@ public class PlayerList {
 	 *            The player who have have yet to enter a command to roll the die,
 	 *            or have just rolled the die before passing the die to the next
 	 *            player.
+	 *            
+	 * @param gotDoubles Is <code>true</code> if the player before the activeplayer rolled 2 alike dice; false otherwise.
+	 * @param extraTurns The number of times a player have rolled 2 alike dice in a row.
+	 * @param turncounter The total number of turns taken in the game.
 	 */
 
-	public void passTurn() {
+	public void passTurn(boolean gotDoubles) {
+		if (gotDoubles == false || this.players[this.activePlayer].getBalance() < 0 || this.extraTurns >= 2) {
+			this.extraTurns = 0;
+			this.activePlayer = ++this.activePlayer % this.players.length;
+			passTurn(this.players[this.activePlayer].getBalance() >= 0);
+		} else if (gotDoubles == true)
+			this.extraTurns++;
+		this.turncounter++;
 
-		this.activePlayer = ++this.activePlayer % this.players.length;
-		if (this.players[this.activePlayer].getBalance() < 0) {
-			passTurn();
-		}
 	}
 
 	/**
@@ -264,16 +277,24 @@ public class PlayerList {
 		}
 		return out;
 	}
-	
+
 	/**
-	 * Sets all players balance to a new value that is their old balance - the valuta.
-	 * @param valuta The value taken from all player balances.
+	 * Sets all players balance (except for the active player) to a new value that
+	 * is their old balance minus the valuta.
+	 * 
+	 * @param valuta
+	 *            The value taken from all player balances.
 	 */
-	
+
 	public void takeMoneyAllPlayers(int valuta) {
 		for (int i = 0; i < this.players.length; i++) {
-			if(players[i].getBalance() >= 0)
-				addBalance(i, -valuta);
+			if (this.players[i].getBalance() >= 0 && i != activePlayer)
+				addBalance(i, valuta);
 		}
+		addBalance(activePlayer, -valuta);
+	}
+
+	public int getTurnCount() {
+		return this.turncounter;
 	}
 }
