@@ -5,15 +5,12 @@ import java.io.IOException;
 import java.util.Random;
 
 public class DeckOfCards {
-	
+
 	String[][] deck;
 
 	/**
-	 * @param file
-	 *            card format: 1 card per line. "String, cardType, String cardText,
-	 *            int value"
-	 * @param i
-	 * @throws IOException 
+	 * Constructs a new deck of chancecards from the gamesRules.CardLoader. Also
+	 * shuffles the deck afterwards.
 	 */
 	public DeckOfCards() {
 		try {
@@ -24,18 +21,23 @@ public class DeckOfCards {
 		}
 		ShuffleDeck();
 	}
-	
-	public void ShuffleDeck() {
-	    Random random = new Random();
 
-	    for (int i = deck.length - 1; i > 0; i--) {
-	    	int m = random.nextInt(i + 1);
-	        for (int j = 0; j < deck[i].length; j++) {
-	            
-	            String temp = deck[i][j];
-	            deck[i][j] = deck[m][j];
-	            deck[m][j] = temp;
-	        }
-	    }
+	/**
+	 * Sets the order in which the cards are placed in the deck[][] to a new
+	 * pseudorandom number in the array. Basically it shuffles the deck.
+	 */
+
+	public void ShuffleDeck() {
+		Random random = new Random();
+
+		for (int i = deck.length - 1; i > 0; i--) {
+			int m = random.nextInt(i + 1);
+			for (int j = 0; j < deck[i].length; j++) {
+
+				String temp = deck[i][j];
+				deck[i][j] = deck[m][j];
+				deck[m][j] = temp;
+			}
+		}
 	}
 }

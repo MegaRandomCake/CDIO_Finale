@@ -5,14 +5,20 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class CardLoader {
-	
+
 	String[][] cards = new String[45][9];
-	
+
 	/**
-	 * String med beskrivelse, int med hvor mange felt er der skal rykkes, int med balanceændring for aktiv spiller,
-	 * int med balanceændring for alle ikke-aktive spillere,int oliepriser(1)/ejendomsskat(2)/matadorlegat(3), 
-	 * boolean Skal man betale dobbelt, boolean Ryger man i fængsel, boolean kongensfødselsdag, int[] med felter der kan flyttes til.
+	 * Constructs a String[45][9] with all the chancecards and their values from a
+	 * .txt file on disk. All values of i at j = 0 is The message shown to the
+	 * player. Then number of spaces to move, balancechange for activeplayer,
+	 * balancechange for all other players, int for special fees, boolean for if the
+	 * player need to pay double, boolean do the player go to jail, boolean do the
+	 * player gain a "get out of jail card" and indexnumber of a field the player
+	 * must move to.
+	 * 
 	 * @throws IOException
+	 *             If no file is found.
 	 */
 
 	public CardLoader() throws IOException {
@@ -37,9 +43,14 @@ public class CardLoader {
 		}
 		reader.close();
 	}
+	
+	/**
+	 * Return the entire String[][] of all chancecards created in the constructor.
+	 * @return String[][] with all chancecards.
+	 */
 
 	public String[][] LoadDeck() {
 		return this.cards;
-		
+
 	}
 }
