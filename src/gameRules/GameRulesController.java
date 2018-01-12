@@ -26,7 +26,7 @@ public class GameRulesController {
 		}
 
 		try {
-			this.deck = new DeckOfCards(new FileLoader("src/gameRules/Cards.txt", 45, 8).LoadDeck());
+			this.deck = new DeckOfCards(new FileLoader("src/gameRules/Cards.txt", 45, 9).LoadDeck());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -36,9 +36,9 @@ public class GameRulesController {
 
 	}
 
-	public Object[] getArray(int newField) {
+	public Object[] getArray(int newField, int activePlayer) {
 		ResetOut();
-		checkField(newField);
+		checkField(newField, activePlayer);
 		this.out[0] = this.gameText;
 		this.out[1] = this.centerText;
 		this.out[2] = this.moveFields;
@@ -52,7 +52,7 @@ public class GameRulesController {
 		return this.out;
 	}
 
-	private void checkField(int newField) {
+	private void checkField(int newField, int activePlayer) {
 		switch (newField) {
 		case 2:
 		case 7:
@@ -63,11 +63,17 @@ public class GameRulesController {
 
 			DrawCard();
 			break;
+		case 0:
+		case 10:
+		case 20:
+		case 30:
+			System.out.println("Gratis parkering: " + newField);
+			break;
 		default:
+			this.addAPBalance = this.fields.getPrice(newField, activePlayer);
 			break;
 		}
 		// if (this.fields.checkFieldOwned(newField))
-		this.addAPBalance = this.addAPBalance - this.fields.getPrice(newField);
 	}
 
 	private void DrawCard() {
@@ -83,6 +89,7 @@ public class GameRulesController {
 		this.CurrentTopCard++;
 		if (this.CurrentTopCard == 44)
 			this.deck.ShuffleDeck();
+		System.out.println(this.centerText);
 
 	}
 
