@@ -9,9 +9,9 @@ import java.io.IOException;
  * Strings, ints and booleans.
  */
 
-public class CardLoader {
+public class FileLoader {
 
-	String[][] cards = new String[45][9];
+	String[][] cards;
 
 	/**
 	 * Constructs a String[45][9] with all the chancecards and their values from a
@@ -26,9 +26,9 @@ public class CardLoader {
 	 *             If no file is found.
 	 */
 
-	public CardLoader() throws IOException {
-		String file = "src/gameRules/Cards.txt";
-
+	public FileLoader(String path, int lines, int datapoints) throws IOException {
+		String file = path;
+		this.cards = new String[lines][datapoints];
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 
 		for (int i = 0; i < this.cards.length; i++) {

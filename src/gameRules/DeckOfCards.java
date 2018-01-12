@@ -1,6 +1,5 @@
 package gameRules;
 
-import java.io.IOException;
 //import java.util.Random;
 import java.util.Random;
 
@@ -17,13 +16,9 @@ public class DeckOfCards {
 	 * Constructs a new deck of chancecards from the gamesRules.CardLoader. Also
 	 * shuffles the deck afterwards.
 	 */
-	public DeckOfCards() {
-		try {
-			deck = new CardLoader().LoadDeck();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public DeckOfCards(String[][] data) {
+			this.deck = data;
+
 		ShuffleDeck();
 	}
 
@@ -35,13 +30,13 @@ public class DeckOfCards {
 	public void ShuffleDeck() {
 		Random random = new Random();
 
-		for (int i = deck.length - 1; i > 0; i--) {
+		for (int i = this.deck.length - 1; i > 0; i--) {
 			int m = random.nextInt(i + 1);
-			for (int j = 0; j < deck[i].length; j++) {
+			for (int j = 0; j < this.deck[i].length; j++) {
 
-				String temp = deck[i][j];
-				deck[i][j] = deck[m][j];
-				deck[m][j] = temp;
+				String temp = this.deck[i][j];
+				this.deck[i][j] = this.deck[m][j];
+				this.deck[m][j] = temp;
 			}
 		}
 	}

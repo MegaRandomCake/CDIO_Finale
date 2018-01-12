@@ -1,51 +1,59 @@
 package gameRules;
 
-import java.io.BufferedReader;
-
-import java.io.FileReader;
 import java.io.IOException;
 
-import entity.PlayerList;
 
 /**
- * field.
- * a field, returning the field buying price, and checking what player owns what
- * Provides an array with all the fields on the gameboard that can handle buying
+ * field. a field, returning the field buying price, and checking what player
+ * owns what Provides an array with all the fields on the gameboard that can
+ * handle buying
  *
  */
 public class FieldsController {
 
 	private int[] house = new int[40];
-	int[][] fields = new int[40][8];
+	int[] fieldCost = new int[40];
 	int[] fieldOwned = new int[40];
-	int[] fieldRent = new int[40];
+	int[][] fieldRent = new int[40][6];
 	String file = "src/gameRules/fieldsText.txt";
-	private PlayerList player;
+	private String[] fieldHouseCost;
 
 	/**
 	 * Constructs a new array fields that handles all the buying prices which is
 	 * read from a text file. Also constructs a new array filedOwned that handles
 	 * what player owns what field.
 	 * 
+	 * @param strings
+	 * 
 	 * @throws IOException
 	 */
 
-	public FieldsController() throws IOException {
-		BufferedReader reader = new BufferedReader(new FileReader(this.file));
-		for (int i = 0; i < this.fields.length; i++) {
-			String tempLine = reader.readLine();
-			this.house[i] = 0;
-			this.fieldOwned[i] = -1;
-			int progress = 0;
-			for (int j = 0; j < tempLine.length(); j++) {
-				char currChar = tempLine.charAt(j);
-				if (currChar == ',')
-					progress++;
-				else
-					this.fields[i][progress] += currChar;
+	public FieldsController(String[][] strings) throws IOException {
+		for (int i = 0; i < strings.length; i++) {
+			this.fieldOwned[i] = 0;
+			this.fieldCost[i] = Integer.parseInt(strings[i][0]);
+			this.fieldHouseCost[i] = strings[i][1];
+			for (int j = 2; j < strings.length; j++) {
+				this.fieldRent[i][j] = Integer.parseInt(strings[i][j]);
 			}
 		}
-		reader.close();
+	}
+
+	// BufferedReader reader = new BufferedReader(new FileReader(this.file));
+	// for (int i = 0; i < this.fields.length; i++) {
+	// String tempLine = reader.readLine();
+	// this.house[i] = 0;
+	// this.fieldOwned[i] = -1;
+	// int progress = 0;
+	// for (int j = 0; j < tempLine.length(); j++) {
+	// char currChar = tempLine.charAt(j);
+	// if (currChar == ',')
+	// progress++;
+	// else
+	// this.fields[i][progress] += currChar;
+	// }
+	// }
+	// reader.close();
 	}
 
 	/**
@@ -57,8 +65,8 @@ public class FieldsController {
 
 	public String toString() {
 		String out = "";
-		for (int i = 0; i < this.fields.length; i++) {
-			out += (1 + i + " " + this.fields[i]);
+		for (int i = 0; i < this.fieldCost.length; i++) {
+			out += (1 + i + " " + this.fieldCost[i]);
 			if (this.fieldOwned[i] != 0)
 				out += " " + this.fieldOwned[i];
 			out += "\n";
@@ -74,15 +82,11 @@ public class FieldsController {
 	 */
 
 	public int getPrice(int newField) {
-		return this.fields[newField][this.house[newField]];
+		return this.fieldCost[newField];
 	}
 
 	public int getRent(int rentField) {
-		return this.fieldRent[rentField];
-	}
-
-	public void setDoubleRent(int rentField) {
-		this.fieldRent[rentField] *= 2;
+		return this.fieldRent[rentField][this.house[rentField]];
 	}
 
 	/**
@@ -159,6 +163,8 @@ public class FieldsController {
 		case 37:
 		case 39:
 			this.player.addBalance(this.player.getActivePlayer(), -4000);
+		default:
+			break;
 		}
 	}
 

@@ -20,12 +20,16 @@ public class GameRulesController {
 
 	public GameRulesController() {
 		try {
-			this.fields = new FieldsController();
+			this.fields = new FieldsController(new FileLoader("src/gameRules/fieldsText.txt", 40, 8).LoadDeck());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		this.deck = new DeckOfCards();
+		try {
+			this.deck = new DeckOfCards(new FileLoader("src/gameRules/Cards.txt", 45, 8).LoadDeck());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		this.out = new Object[10];
 		this.gameText = "text in the top corner";
 		this.centerText = "text in the center";
@@ -62,7 +66,7 @@ public class GameRulesController {
 		default:
 			break;
 		}
-//		if (this.fields.checkFieldOwned(newField))
+		// if (this.fields.checkFieldOwned(newField))
 		this.addAPBalance = this.addAPBalance - this.fields.getPrice(newField);
 	}
 
