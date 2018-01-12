@@ -10,6 +10,7 @@ public class GameRulesController {
 	private int moveToFields;
 	private int addAPBalance;
 	private int addNAPBalance;
+	private int[] addPlayerBalance = new int[2];
 	private FieldsController fields;
 	private DeckOfCards deck;
 	private int SpecialEvent;
@@ -30,7 +31,7 @@ public class GameRulesController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		this.out = new Object[10];
+		this.out = new Object[11];
 		this.gameText = "text in the top corner";
 		this.centerText = "text in the center";
 
@@ -45,10 +46,11 @@ public class GameRulesController {
 		this.out[3] = this.moveToFields;
 		this.out[4] = this.addAPBalance;
 		this.out[5] = this.addNAPBalance;
-		this.out[6] = this.PayDouble;
-		this.out[7] = this.GoToJail;
-		this.out[8] = this.KingsBirthday;
-		this.out[9] = this.SpecialEvent;
+		this.out[6] = this.addPlayerBalance;
+		this.out[7] = this.PayDouble;
+		this.out[8] = this.GoToJail;
+		this.out[9] = this.KingsBirthday;
+		this.out[10] = this.SpecialEvent;
 		return this.out;
 	}
 
@@ -70,7 +72,7 @@ public class GameRulesController {
 			System.out.println("Gratis parkering: " + newField);
 			break;
 		default:
-			this.addAPBalance = this.fields.getPrice(newField, activePlayer);
+			getStreetPrice(newField, activePlayer);
 			break;
 		}
 		// if (this.fields.checkFieldOwned(newField))
@@ -91,6 +93,15 @@ public class GameRulesController {
 			this.deck.ShuffleDeck();
 		System.out.println(this.centerText);
 
+	}
+	private void getStreetPrice(int newField, int activePlayer) {
+		if(this.fields.getFieldOwned(newField)) {
+			int rent = this.fields.getRent(newField);
+			this.addAPBalance = -rent;
+			this.addPlayerBalance[0] = this.fields.getOwner(newField);
+			this.addPlayerBalance[1] = rent;
+		}
+		this.addAPBalance= this.fields.getPrice(newField, activePlayer);
 	}
 
 	private void ResetOut() {

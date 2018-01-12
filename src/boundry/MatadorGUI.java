@@ -38,7 +38,8 @@ public class MatadorGUI {
 				case "street":
 				case "ferry":
 					this.fields[i] = new GUI_Street(tempFields[i][1], tempFields[i][2], tempFields[i][3],
-							tempFields[i][4], Color.BLUE, Color.MAGENTA);
+							tempFields[i][4], Color.decode(tempFields[i][5]),
+							Color.BLACK);
 					break;
 				case "chance":
 					this.fields[i] = new GUI_Chance(tempFields[i][1], tempFields[i][2], tempFields[i][3], Color.WHITE,
@@ -62,8 +63,9 @@ public class MatadorGUI {
 				// Color.BLACK, Color.YELLOW);
 				// break;
 				case "start":
-					this.fields[i] = new GUI_Start(tempFields[i][1], tempFields[i][2], tempFields[i][3], Color.RED,
-							Color.RED);
+					this.fields[i] = new GUI_Start(tempFields[i][1], "Modtag \r\n kr. 4.000", tempFields[i][3], Color.decode(tempFields[i][5]),
+							Color.WHITE);
+					System.out.println(String.format(tempFields[i][2],"\r\n"));
 					break;
 				default:
 					break;
@@ -158,8 +160,11 @@ public class MatadorGUI {
 
 	/**
 	 * Sets the balance of the activeplayer
-	 * @param balance The balance change.
-	 * @param activePlayer The indexnumber of the activeplayer.
+	 * 
+	 * @param balance
+	 *            The balance change.
+	 * @param activePlayer
+	 *            The indexnumber of the activeplayer.
 	 */
 
 	public void setBalance(int balance, int activePlayer) {
@@ -167,10 +172,15 @@ public class MatadorGUI {
 	}
 
 	/**
-	 * Sets the players status to <code>false</code> on the old field, and <code>true</code>
-	 * @param activePlayer The indexnumber of the activeplayer.
-	 * @param oldField The indexnumber of the old field.
-	 * @param newField The indexnumber of the new field.
+	 * Sets the players status to <code>false</code> on the old field, and
+	 * <code>true</code>
+	 * 
+	 * @param activePlayer
+	 *            The indexnumber of the activeplayer.
+	 * @param oldField
+	 *            The indexnumber of the old field.
+	 * @param newField
+	 *            The indexnumber of the new field.
 	 */
 
 	public void movePlayer(int activePlayer, int oldField, int newField) {
@@ -179,8 +189,11 @@ public class MatadorGUI {
 	}
 
 	/**
-	 * Returns a String[] containing all the names of the players, after they have been inputed by the players.
-	 * @param numOfPlayers The number of player that will be playing the game.
+	 * Returns a String[] containing all the names of the players, after they have
+	 * been inputed by the players.
+	 * 
+	 * @param numOfPlayers
+	 *            The number of player that will be playing the game.
 	 * @return String[] with all playernames.
 	 */
 
@@ -194,7 +207,9 @@ public class MatadorGUI {
 
 	/**
 	 * Makes the GUI display 2 dice that shows their face-up value
-	 * @param eyes int[] containing the face-up values.
+	 * 
+	 * @param eyes
+	 *            int[] containing the face-up values.
 	 */
 
 	public void setDice(int[] eyes) {
