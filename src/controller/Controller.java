@@ -132,22 +132,4 @@ public class Controller {
 		// buyField(newField, activePlayer);
 	}
 
-	/**
-	 * Sets the field a player just landed on to their field by buying it from the
-	 * bank.
-	 * 
-	 * !This method is to be moved into the gameRules package!
-	 * 
-	 * @param field
-	 *            A field on the gameboard. "Start" is number 0 and the largest
-	 *            number is 39.
-	 * @param activePlayer
-	 *            The current player who just landed on the field.
-	 */
-	// private void buyField(int field, int activePlayer) {
-	// if (this.gameLogic.checkFieldOwned(field) == -1) {
-	// this.gameLogic.buyField(field, activePlayer);
-	// }
-	// }
-
 }
