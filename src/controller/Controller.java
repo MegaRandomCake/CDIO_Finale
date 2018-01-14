@@ -102,9 +102,7 @@ public class Controller {
 		if (oldField < 0)
 			oldField += 40;
 
-		// this.boundry.waitForEnter(String.format("player %s's turn", activePlayer +
-		// 1), "roll die",
-		// "roll die but with this button");
+		this.boundry.waitForEnter(String.format("player %s's turn", activePlayer + 1), "roll die");
 		/* Rolls the dice and moves the player forward the number of the dice. */
 		this.cup.rollCup();
 		this.boundry.setDice(this.cup.getEyes());
