@@ -69,6 +69,14 @@ public class GameRulesController {
 		case 10:
 		case 20:
 		case 30:
+		case 4:
+		case 5:
+		case 12:
+		case 15:
+		case 25:
+		case 28:
+		case 35:
+		case 38:
 			System.out.println("Gratis parkering: " + newField);
 			break;
 		default:
@@ -89,19 +97,22 @@ public class GameRulesController {
 		this.KingsBirthday = Boolean.parseBoolean(this.deck.deck[this.CurrentTopCard][7]);
 		this.moveToFields = Integer.parseInt(this.deck.deck[this.CurrentTopCard][8]);
 		this.CurrentTopCard++;
-		if (this.CurrentTopCard == 44)
-			this.deck.ShuffleDeck();
+		if (this.CurrentTopCard == 44) {
+			this.deck.shuffleDeck();
+			this.CurrentTopCard = 0;
+		}
 		System.out.println(this.centerText);
 
 	}
+
 	private void getStreetPrice(int newField, int activePlayer) {
-		if(this.fields.getFieldOwned(newField)) {
+		if (this.fields.getFieldOwned(newField)) {
 			int rent = this.fields.getRent(newField);
 			this.addAPBalance = -rent;
 			this.addPlayerBalance[0] = this.fields.getOwner(newField);
 			this.addPlayerBalance[1] = rent;
 		}
-		this.addAPBalance= this.fields.getPrice(newField, activePlayer);
+		this.addAPBalance = this.fields.getPrice(newField, activePlayer);
 	}
 
 	private void ResetOut() {

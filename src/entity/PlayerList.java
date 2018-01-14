@@ -101,7 +101,8 @@ public class PlayerList {
 	 * Returns a boolean that is true if the player in players[i] have a balance
 	 * equal to or above 0, else it returns false.
 	 * 
-	 * @param i The player that will have their balance checked.
+	 * @param i
+	 *            The player that will have their balance checked.
 	 * 
 	 * @return <code>true</code> if players[i]'s balance >= 0; false otherwise.
 	 */
@@ -114,18 +115,22 @@ public class PlayerList {
 	}
 
 	/**
-	 * !Move extraTurns to controller.Controller
-	 * Sets the activePlayer to the next player in the players[]. If the next player
-	 * have under 0 in their balance, the dice is passed on to the next player.
+	 * !Move extraTurns to controller.Controller Sets the activePlayer to the next
+	 * player in the players[]. If the next player have under 0 in their balance,
+	 * the dice is passed on to the next player.
 	 * 
 	 * @param activePlayer
 	 *            The player who have have yet to enter a command to roll the die,
 	 *            or have just rolled the die before passing the die to the next
 	 *            player.
-	 *            
-	 * @param gotDoubles Is <code>true</code> if the player before the activeplayer rolled 2 alike dice; false otherwise.
-	 * @param extraTurns The number of times a player have rolled 2 alike dice in a row.
-	 * @param turncounter The total number of turns taken in the game.
+	 * 
+	 * @param gotDoubles
+	 *            Is <code>true</code> if the player before the activeplayer rolled
+	 *            2 alike dice; false otherwise.
+	 * @param extraTurns
+	 *            The number of times a player have rolled 2 alike dice in a row.
+	 * @param turncounter
+	 *            The total number of turns taken in the game.
 	 */
 
 	public void passTurn(boolean gotDoubles) {
@@ -288,10 +293,10 @@ public class PlayerList {
 
 	public void takeMoneyAllPlayers(int valuta) {
 		for (int i = 0; i < this.players.length; i++) {
-			if (this.players[i].getBalance() >= 0 && i != activePlayer)
+			if (this.players[i].getBalance() >= 0 && i != this.activePlayer)
 				addBalance(i, valuta);
 		}
-		addBalance(activePlayer, -valuta);
+		addBalance(this.activePlayer, -valuta);
 	}
 
 	public int getTurnCount() {

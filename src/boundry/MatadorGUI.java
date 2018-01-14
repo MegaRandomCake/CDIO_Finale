@@ -65,7 +65,6 @@ public class MatadorGUI {
 				case "start":
 					this.fields[i] = new GUI_Start(tempFields[i][1], "Modtag \r\n kr. 4.000", tempFields[i][3], Color.decode(tempFields[i][5]),
 							Color.WHITE);
-					System.out.println(String.format(tempFields[i][2],"\r\n"));
 					break;
 				default:
 					break;
@@ -215,5 +214,4 @@ public class MatadorGUI {
 	public void setDice(int[] eyes) {
 		this.gui.setDice(eyes[0], eyes[1]);
 	}
-
 }

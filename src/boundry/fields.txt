@@ -1,4 +1,4 @@
-Start,Start,Modtag%skr. 4.000,Hvergang De passerer modtag kr. 4.000,0,#CC0000
+Start,Start,Modtag kr. 4.000,Hvergang De passerer modtag kr. 4.000,0,#CC0000
 Street,Rødovrevej,kr. 1.200,Købe udvide eller betale leje,1200,#26B3FF
 Chance,?,Prøv lykken!,Træk et chancekort,0,#00FFFF
 Street,Hvidovrevej,kr. 1.200,Købe udvide eller betale leje,1200,#26B3FF

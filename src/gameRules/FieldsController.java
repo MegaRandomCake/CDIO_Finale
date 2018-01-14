@@ -14,7 +14,6 @@ public class FieldsController {
 	int[] fieldCost = new int[40];
 	int[] fieldOwner = new int[40];
 	int[][] fieldRent = new int[40][6];
-	String file = "src/gameRules/fieldsText.txt";
 	private int[] fieldHouseCost = new int[40];
 	private int Profit = 0;
 
@@ -88,8 +87,8 @@ public class FieldsController {
 			this.fieldOwner[newField] = activePlayer;
 			return -this.fieldCost[newField];
 		} else if (this.fieldOwner[newField] >= 0) {
-			if(this.house[newField]<6)
-			this.house[newField]++;
+			if(this.fieldOwner[newField] == activePlayer)
+				buildHouse(newField);
 			System.out.println(this.getRent(newField) + " is the price for field" + newField);
 			this.Profit = this.getRent(newField);
 			return -this.getRent(newField);
@@ -143,7 +142,12 @@ public class FieldsController {
 		return this.getFieldOwner(newField);
 	}
 
-
-
+	public int buildHouse(int field) {
+		if (this.house[field] < 6) {
+			this.house[field]++;
+			return this.fieldHouseCost[field];
+		}
+		return 0;
+	}
 
 }
