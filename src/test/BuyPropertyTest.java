@@ -20,7 +20,7 @@ public class BuyPropertyTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.logic = new FieldsController();
+		this.logic = new FieldsController(null);
 	}
 
 	@Test
@@ -30,8 +30,8 @@ public class BuyPropertyTest {
 	 */
 	public void testBuyProperty() {
 		this.logic.buyField(1, 1);
-		int expected = 1;
-		int actual = this.logic.checkFieldOwned(1);
+		boolean expected = true;
+		boolean actual = this.logic.getFieldOwned(1);
 		assertEquals(actual, expected);
 	}
 

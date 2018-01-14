@@ -114,14 +114,18 @@ public class Controller {
 	}
 
 	private void checkLogic(int activePlayer, int newField) {
-		Object[] doThis = this.gameLogic.getArray(newField);
-		this.boundry.nextmessage((String) doThis[1]);
-		this.players.addToField(activePlayer, (Integer) doThis[2]);
-		/* Virker ikke, bilen flyttes men der skabes en ikke-flytbar klon på det gamle felt */
-//		if ((Integer) doThis[3] != 40)
-//			this.players.setField(activePlayer, (Integer) doThis[3]);
-		this.players.addBalance(activePlayer, (Integer) doThis[4]);
-		this.players.takeMoneyAllPlayers((Integer) doThis[5]);
+		Object[] logicCheck = this.gameLogic.getArray(newField, activePlayer);
+		this.boundry.nextmessage((String) logicCheck[1]);
+		this.players.addToField(activePlayer, (Integer) logicCheck[2]);
+		/*
+		 * Virker ikke, bilen flyttes men der skabes en ikke-flytbar klon på det gamle
+		 * felt
+		 */
+		// if ((Integer) doThis[3] != 40)
+		// this.players.setField(activePlayer, (Integer) doThis[3]);
+		this.players.addBalance(activePlayer, (Integer) logicCheck[4]);
+		this.players.takeMoneyAllPlayers((Integer) logicCheck[5]);
+		// this.players.addBalance((Integer)logicCheck[6], (Integer)logicCheck[6]);
 		/* Endnu ikke implementeret */
 		// this.players.PayDouble((Boolean) doThis[6]);
 		// this.players.setPrisonState(activePlayer, (Boolean) doThis[7]);

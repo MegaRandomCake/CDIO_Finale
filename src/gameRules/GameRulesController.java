@@ -15,6 +15,7 @@ public class GameRulesController {
 	private int moveToFields;
 	private int addAPBalance;
 	private int addNAPBalance;
+	private int[] addPlayerBalance = new int[2];
 	private FieldsController fields;
 	private DeckOfCards deck;
 	private int SpecialEvent;
@@ -36,11 +37,11 @@ public class GameRulesController {
 		}
 
 		try {
-			this.deck = new DeckOfCards(new FileLoader("src/gameRules/Cards.txt", 45, 8).LoadDeck());
+			this.deck = new DeckOfCards(new FileLoader("src/gameRules/Cards.txt", 45, 9).LoadDeck());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		this.out = new Object[10];
+		this.out = new Object[11];
 		this.gameText = "text in the top corner";
 		this.centerText = "text in the center";
 
@@ -57,19 +58,20 @@ public class GameRulesController {
 	 * @return An Object[10] with Strings, ints and Booleans.
 	 */
 
-	public Object[] getArray(int newField) {
+	public Object[] getArray(int newField, int activePlayer) {
 		ResetOut();
-		checkField(newField);
+		checkField(newField, activePlayer);
 		this.out[0] = this.gameText;
 		this.out[1] = this.centerText;
 		this.out[2] = this.moveFields;
 		this.out[3] = this.moveToFields;
 		this.out[4] = this.addAPBalance;
 		this.out[5] = this.addNAPBalance;
-		this.out[6] = this.PayDouble;
-		this.out[7] = this.GoToJail;
-		this.out[8] = this.KingsBirthday;
-		this.out[9] = this.SpecialEvent;
+		this.out[6] = this.addPlayerBalance;
+		this.out[7] = this.PayDouble;
+		this.out[8] = this.GoToJail;
+		this.out[9] = this.KingsBirthday;
+		this.out[10] = this.SpecialEvent;
 		return this.out;
 	}
 
@@ -81,7 +83,7 @@ public class GameRulesController {
 	 *            The indexnumber of the field, the current player have landed on.
 	 */
 
-	private void checkField(int newField) {
+	private void checkField(int newField, int activePlayer) {
 		switch (newField) {
 		case 2:
 		case 7:
@@ -92,11 +94,25 @@ public class GameRulesController {
 
 			DrawCard();
 			break;
+		case 0:
+		case 10:
+		case 20:
+		case 30:
+		case 4:
+		case 5:
+		case 12:
+		case 15:
+		case 25:
+		case 28:
+		case 35:
+		case 38:
+			System.out.println("Gratis parkering: " + newField);
+			break;
 		default:
+			getStreetPrice(newField, activePlayer);
 			break;
 		}
 		// if (this.fields.checkFieldOwned(newField))
-		this.addAPBalance = this.addAPBalance - this.fields.getPrice(newField);
 	}
 
 	/**
@@ -116,9 +132,22 @@ public class GameRulesController {
 		this.KingsBirthday = Boolean.parseBoolean(this.deck.deck[this.CurrentTopCard][7]);
 		this.moveToFields = Integer.parseInt(this.deck.deck[this.CurrentTopCard][8]);
 		this.CurrentTopCard++;
-		if (this.CurrentTopCard == 44)
-			this.deck.ShuffleDeck();
+		if (this.CurrentTopCard == 44) {
+			this.deck.shuffleDeck();
+			this.CurrentTopCard = 0;
+		}
+		System.out.println(this.centerText);
 
+	}
+
+	private void getStreetPrice(int newField, int activePlayer) {
+		if (this.fields.getFieldOwned(newField)) {
+			int rent = this.fields.getRent(newField);
+			this.addAPBalance = -rent;
+			this.addPlayerBalance[0] = this.fields.getOwner(newField);
+			this.addPlayerBalance[1] = rent;
+		}
+		this.addAPBalance = this.fields.getPrice(newField, activePlayer);
 	}
 
 	/**

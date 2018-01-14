@@ -19,7 +19,7 @@ public class DeckOfCards {
 	public DeckOfCards(String[][] data) {
 			this.deck = data;
 
-		ShuffleDeck();
+		shuffleDeck();
 	}
 
 	/**
@@ -27,7 +27,7 @@ public class DeckOfCards {
 	 * pseudorandom number in the array. Basically it shuffles the deck.
 	 */
 
-	public void ShuffleDeck() {
+	public void shuffleDeck() {
 		Random random = new Random();
 
 		for (int i = this.deck.length - 1; i > 0; i--) {

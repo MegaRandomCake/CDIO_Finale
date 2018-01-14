@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class FileLoader {
 
-	String[][] cards;
+	String[][] fileIn;
 
 	/**
 	 * Constructs a String[45][9] with all the chancecards and their values from a
@@ -28,22 +28,22 @@ public class FileLoader {
 
 	public FileLoader(String path, int lines, int datapoints) throws IOException {
 		String file = path;
-		this.cards = new String[lines][datapoints];
+		this.fileIn = new String[lines][datapoints];
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 
-		for (int i = 0; i < this.cards.length; i++) {
+		for (int i = 0; i < this.fileIn.length; i++) {
 			String tempLine = reader.readLine();
 			int progress = 0;
 
-			for (int j = 0; j < this.cards[i].length; j++)
-				this.cards[i][j] = "";
+			for (int j = 0; j < this.fileIn[i].length; j++)
+				this.fileIn[i][j] = "";
 
 			for (int j = 0; j < tempLine.length(); j++) {
 				char currChar = tempLine.charAt(j);
 				if (currChar == '|')
 					progress++;
 				else
-					this.cards[i][progress] += currChar;
+					this.fileIn[i][progress] += currChar;
 			}
 		}
 		reader.close();
@@ -56,7 +56,7 @@ public class FileLoader {
 	 */
 
 	public String[][] LoadDeck() {
-		return this.cards;
+		return this.fileIn;
 
 	}
 }
