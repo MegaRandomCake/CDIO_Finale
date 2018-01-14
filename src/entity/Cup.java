@@ -67,7 +67,7 @@ public class Cup {
 	 * @return A number from 1 to 6.
 	 */
 
-	private int dice() {
+	public int dice() {
 		return (int) ((Math.random() * 6) + 1);
 	}
 
