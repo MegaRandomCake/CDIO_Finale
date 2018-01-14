@@ -224,7 +224,9 @@ public class PlayerList {
 	 */
 
 	public void setField(int player, int field) {
+		if(field>0||field<40)
 		this.players[player].setField(field);
+		else this.players[player].setField(0);
 	}
 
 	/**

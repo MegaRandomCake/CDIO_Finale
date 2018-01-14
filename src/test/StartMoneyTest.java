@@ -20,7 +20,7 @@ public class StartMoneyTest {
 		int expected = this.players.getBalance(0);
 		this.players.addToField(0, 41);
 		int actual = this.players.getBalance(0);
-		assertEquals(actual, expected+startmoney);
+		assertEquals(actual, expected+this.startmoney);
 	}
 
 	@Test
@@ -28,6 +28,6 @@ public class StartMoneyTest {
 		int expected = this.players.getBalance(0);
 		this.players.addToField(0, 40);
 		int actual = this.players.getBalance(0);
-		assertEquals(actual, expected+startmoney);
+		assertEquals(actual, expected+this.startmoney);
 	}
 }

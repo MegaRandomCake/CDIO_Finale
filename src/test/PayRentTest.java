@@ -6,19 +6,19 @@ import org.junit.Before;
 import org.junit.Test;
 
 import entity.PlayerList;
-import gameRules.Logic;
+import gameRules.GameRulesController;
 
 public class PayRentTest {
-	
+
 	PlayerList players;
-	Logic logic;
+	GameRulesController logic;
 	int field3price = 1200;
 	int field3rent = 50;
 
 	@Before
 	public void setUp() throws Exception {
 		this.players = new PlayerList(3);
-		this.logic = new Logic();
+		this.logic = new GameRulesController();
 	}
 
 	@Test
@@ -29,8 +29,8 @@ public class PayRentTest {
 		this.players.addToField(1, 3);
 		int payerExpected = this.players.getBalance(1);
 		int receiverExpected = this.players.getBalance(0);
-		assertEquals(payerActual, payerExpected-field3rent);
-		assertEquals(receiverActual, receiverExpected-field3price+field3rent);
+		assertEquals(payerActual, payerExpected - this.field3rent);
+		assertEquals(receiverActual, receiverExpected - this.field3price + this.field3rent);
 	}
-	
+
 }

@@ -13,7 +13,7 @@ public class DiceTest {
 
 	@Before
 	public void setop() throws Exception {
-		cup = new entity.Cup();
+		this.cup = new entity.Cup();
 	}
 
 	@After
@@ -34,10 +34,10 @@ public class DiceTest {
 			Resultat[i] = 0;
 
 		for (int i = 1; i < 360000; i++) {
-			cup.rollCup();
-			int a = cup.getEyes();
+			this.cup.rollCup();
+			int[] a = this.cup.getEyes();
 
-			switch (a) {
+			switch (a[0] + a[1]) {
 			case (2):
 				Resultat[0]++;
 				break;
@@ -102,7 +102,7 @@ public class DiceTest {
 			Resultat[i] = 0;
 
 		for (int i = 1; i < 100000; i++) {
-			int a = cup.dice();
+			int a = this.cup.dice();
 
 			switch (a) {
 			case (1):
