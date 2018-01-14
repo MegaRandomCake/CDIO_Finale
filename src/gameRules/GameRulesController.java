@@ -3,6 +3,11 @@ package gameRules;
 import java.io.IOException;
 
 public class GameRulesController {
+
+	/**
+	 * Provides a set of gamerules for the game with methods for setting, getting
+	 * and resetting variables that are sent to the main controller.
+	 */
 	private int CurrentTopCard = 0;
 	private String gameText;
 	private String centerText;
@@ -17,6 +22,11 @@ public class GameRulesController {
 	private boolean GoToJail;
 	private boolean KingsBirthday;
 	Object[] out;
+
+	/**
+	 * Constructs a GameRulesController that contains the FieldsController
+	 * constructor, the DeckOfCards constructor and a Object array[10].
+	 */
 
 	public GameRulesController() {
 		try {
@@ -36,6 +46,17 @@ public class GameRulesController {
 
 	}
 
+	/**
+	 * Returns an Object[10] with String gameText, String centerText, int
+	 * moveFields, int moveToFields, int addAPBalance, int addNAPBalance, boolean
+	 * PayDouble, boolean GotoJail, boolean, KingsBirthday and int SpecialEvent
+	 * where 1 is oilprices, 2 is housingtaxes and 3 is the matador endowment.
+	 * 
+	 * @param newField
+	 *            The indexnumber of the field, the current player have landed on.
+	 * @return An Object[10] with Strings, ints and Booleans.
+	 */
+
 	public Object[] getArray(int newField) {
 		ResetOut();
 		checkField(newField);
@@ -51,6 +72,14 @@ public class GameRulesController {
 		this.out[9] = this.SpecialEvent;
 		return this.out;
 	}
+
+	/**
+	 * Calls the DrawCard method if the current active player lands on a Chance
+	 * field.
+	 * 
+	 * @param newField
+	 *            The indexnumber of the field, the current player have landed on.
+	 */
 
 	private void checkField(int newField) {
 		switch (newField) {
@@ -70,6 +99,12 @@ public class GameRulesController {
 		this.addAPBalance = this.addAPBalance - this.fields.getPrice(newField);
 	}
 
+	/**
+	 * Sets all variables variables used by the out array from the constructor based
+	 * the current top card in the deck. Calls the ShuffleDeck method from
+	 * DeckOfCards if all cards have been drawn.
+	 */
+
 	private void DrawCard() {
 		this.centerText = this.deck.deck[this.CurrentTopCard][0];
 		this.moveFields = Integer.parseInt(this.deck.deck[this.CurrentTopCard][1]);
@@ -85,6 +120,12 @@ public class GameRulesController {
 			this.deck.ShuffleDeck();
 
 	}
+
+	/**
+	 * Sets all variables used by the out array from the constructor to their
+	 * default values. Note that this only changes the variables the out array calls
+	 * and not the out array itself.
+	 */
 
 	private void ResetOut() {
 		this.centerText = "";
