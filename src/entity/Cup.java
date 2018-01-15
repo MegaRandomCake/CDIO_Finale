@@ -13,14 +13,6 @@ public class Cup {
 	private int doubleCounter = 0;
 
 	/**
-	 * Sets the value of the die to a random number from [1,2,3,4,5,6]
-	 * 
-	 * @see Cup#dice()
-	 * @param eyes
-	 *            The current faceup-value of the dice
-	 */
-
-	/**
 	 * Sets the face-up value of the dice with dice(), the boolean doubles and the
 	 * int doubleCounter.
 	 * 
