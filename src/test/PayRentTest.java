@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import entity.PlayerList;
 import gameRules.FieldsController;
+import gameRules.FileLoader;
 
 public class PayRentTest {
 
@@ -18,7 +19,7 @@ public class PayRentTest {
 	@Before
 	public void setUp() throws Exception {
 		this.players = new PlayerList(3);
-		this.logic = new FieldsController();
+		this.logic = new FieldsController(new FileLoader("src/gameRules/fieldsText.txt", 40, 8).LoadDeck());
 	}
 
 	@Test
@@ -26,11 +27,12 @@ public class PayRentTest {
 		int payerActual = this.players.getBalance(1);
 		int receiverActual = this.players.getBalance(0);
 		this.logic.buyField(3, 0);
-		this.players.addToField(1, 3);
+		this.logic.getPrice(3, 1);
 		int payerExpected = this.players.getBalance(1);
 		int receiverExpected = this.players.getBalance(0);
-		assertEquals(payerActual, payerExpected - this.field3rent);
+		assertEquals(payerExpected, payerActual - this.field3rent);
 		assertEquals(receiverActual, receiverExpected - this.field3price + this.field3rent);
+		System.out.println(this.players.getField(1));
 	}
 
 }

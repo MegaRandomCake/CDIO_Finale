@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import gameRules.FieldsController;
+import gameRules.FileLoader;
 
 /**
  * Tests the methods buyField(int, int) and checkFieldOwned(int) from
@@ -20,7 +21,7 @@ public class BuyPropertyTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.logic = new FieldsController();
+		this.logic = new FieldsController(new FileLoader("src/gameRules/fieldsText.txt", 40, 8).LoadDeck());
 	}
 
 	@Test

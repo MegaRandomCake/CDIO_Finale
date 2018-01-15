@@ -92,7 +92,7 @@ public class DiceTest {
 	}
 
 	@Test
-	public void ErTerningenRetfædig() {
+	public void ErTerningenRetfÃ¦rdig() {
 
 		int[] Resultat = new int[7];
 		DecimalFormat df = new DecimalFormat("####0.00");
