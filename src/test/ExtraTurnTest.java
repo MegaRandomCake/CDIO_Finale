@@ -22,12 +22,14 @@ public class ExtraTurnTest {
 		player.passTurn(true);
 		System.out.println("Active player is " + player.getActivePlayer());
 		assertEquals(a, player.getActivePlayer());
-		
+	}
+	
+	@Test
+	public void test2() {
 		int b = player.getActivePlayer();
 		System.out.println("Active player is " + player.getActivePlayer());
 		player.passTurn(false);
 		System.out.println("Active player is " + player.getActivePlayer());
 		assertNotEquals(b, player.getActivePlayer());
-		
 	}
 }
