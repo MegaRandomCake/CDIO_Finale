@@ -6,19 +6,19 @@ import org.junit.Before;
 import org.junit.Test;
 
 import entity.PlayerList;
-import gameRules.GameRulesController;
+import gameRules.FieldsController;
 
 public class PayRentTest {
 
 	PlayerList players;
-	GameRulesController logic;
+	FieldsController logic;
 	int field3price = 1200;
 	int field3rent = 50;
 
 	@Before
 	public void setUp() throws Exception {
 		this.players = new PlayerList(3);
-		this.logic = new GameRulesController();
+		this.logic = new FieldsController();
 	}
 
 	@Test

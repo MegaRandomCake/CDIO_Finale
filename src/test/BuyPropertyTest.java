@@ -20,7 +20,7 @@ public class BuyPropertyTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.logic = new FieldsController(null);
+		this.logic = new FieldsController();
 	}
 
 	@Test
